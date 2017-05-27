@@ -1,0 +1,18 @@
+19:07:28 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+../src/UDPSocket.cpp: In member function ‘int npl::UDPSocket::recv(char*, int)’:
+../src/UDPSocket.cpp:40:1: warning: no return statement in function returning non-void [-Wreturn-type]
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+
+19:07:29 Build Finished (took 985ms)
+

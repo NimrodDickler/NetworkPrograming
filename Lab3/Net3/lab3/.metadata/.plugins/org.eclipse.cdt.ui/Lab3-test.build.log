@@ -1,0 +1,10 @@
+19:07:30 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-test"  ./src/UdpSocketTest.o   -lLab3-UDPSocket
+Finished building target: Lab3-test
+ 
+
+19:07:30 Build Finished (took 286ms)
+

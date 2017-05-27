@@ -1,0 +1,1060 @@
+14:37:51 **** Clean-only build of configuration Debug for project Lab3-UDPMessenger - Solution ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPMessenger.o ./src/UDPSocket.o ./src/main.o  ./src/MThread.d ./src/UDPMessenger.d ./src/UDPSocket.d ./src/main.d  "Lab3-UDPMessenger - Solution"
+ 
+14:37:51 **** Build of configuration Debug for project Lab3-UDPMessenger - Solution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+In file included from ../src/UDPMessenger.cpp:9:0:
+../src/UDPMessenger.h:10:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UDPMessenger.o] Error 1
+14:37:52 **** Clean-only build of configuration Debug for project Lab3-UDPSocket - Solution ****
+make clean 
+rm -rf  ./src/UDPSocket.o ./src/main.o  ./src/UDPSocket.d ./src/main.d  "Lab2-UDPSocket - Solution"
+ 
+14:37:52 **** Build of configuration Debug for project Lab3-UDPSocket - Solution ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket - Solution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket - Solution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket - Solution.a
+Finished building target: libLab3-UDPSocket - Solution.a
+ 
+14:37:54 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp:11:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Error 1
+14:39:50 **** Incremental Build of configuration Debug for project Lab3-UDPSocket - Solution ****
+make all 
+make: Nothing to be done for `all'.
+14:39:51 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger - Solution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+In file included from ../src/UDPMessenger.cpp:9:0:
+../src/UDPMessenger.h:10:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UDPMessenger.o] Error 1
+14:39:51 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket - Solution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket - Solution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocket-Solution
+/usr/bin/ld: cannot find -lLab3-UDPSocket-Solution
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+14:40:01 **** Incremental Build of configuration Debug for project Lab3-UDPSocket - Solution ****
+make all 
+make: Nothing to be done for `all'.
+14:40:01 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger - Solution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+In file included from ../src/UDPMessenger.cpp:9:0:
+../src/UDPMessenger.h:10:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UDPMessenger.o] Error 1
+14:40:02 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket - Solution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocket-Solution
+/usr/bin/ld: cannot find -lLab3-UDPSocket-Solution
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+14:40:07 **** Incremental Build of configuration Debug for project Lab3-UDPSocket - Solution ****
+make all 
+make: Nothing to be done for `all'.
+14:40:07 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger - Solution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+In file included from ../src/UDPMessenger.cpp:9:0:
+../src/UDPMessenger.h:10:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UDPMessenger.o] Error 1
+14:40:08 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket - Solution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket - Solution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocket-Solution
+/usr/bin/ld: cannot find -lLab3-UDPSocket-Solution
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+14:43:06 **** Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+In file included from ../src/UDPMessenger.cpp:9:0:
+../src/UDPMessenger.h:10:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UDPMessenger.o] Error 1
+14:43:07 **** Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building target: libLab3-UDPSocketSolution.a
+ar: creating libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+14:43:07 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+Finished building target: Lab3-test
+ 
+14:43:13 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+14:44:28 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+14:44:29 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+14:44:30 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+14:44:55 **** Clean-only build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessengerSolution
+ 
+14:44:55 **** Clean-only build of configuration Debug for project Lab3-UDPSocketSolution ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocketSolution.a
+ 
+14:44:55 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  Lab3-test
+ 
+14:45:02 **** Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+/usr/bin/ld: cannot find -lLab3-UDPSocketSolution
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-UDPMessengerSolution] Error 1
+14:45:03 **** Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+14:45:04 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+Finished building target: Lab3-test
+ 
+14:45:47 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+14:45:47 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+14:45:47 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:08:33 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:08:51 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:09:13 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:09:13 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:09:13 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:09:40 **** Clean-only build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessengerSolution
+ 
+18:09:40 **** Clean-only build of configuration Debug for project Lab3-UDPSocketSolution ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocketSolution.a
+ 
+18:09:40 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  Lab3-test
+ 
+18:09:42 **** Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+/usr/bin/ld: cannot find -lLab3-UDPSocketSolution
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-UDPMessengerSolution] Error 1
+18:09:49 **** Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+18:09:49 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+Finished building target: Lab3-test
+ 
+18:10:33 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:10:33 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+18:10:33 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:11:32 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:11:32 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+18:12:02 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:12:02 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:12:06 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:12:07 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:16:26 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+../src/UDPSocket.cpp:50:5: error: prototype for ‘int UDPSocket::sendTo(const string&, const string&, int)’ does not match any in class ‘UDPSocket’
+In file included from ../src/UDPSocket.cpp:8:0:
+../src/UDPSocket.h:28:6: error: candidate is: int UDPSocket::sendTo(std::string, std::string, int)
+../src/UDPSocket.cpp:59:5: error: prototype for ‘int UDPSocket::reply(const string&)’ does not match any in class ‘UDPSocket’
+In file included from ../src/UDPSocket.cpp:8:0:
+../src/UDPSocket.h:29:6: error: candidate is: int UDPSocket::reply(std::string)
+make: *** [src/UDPSocket.o] Error 1
+18:16:28 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:16:28 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:16:37 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+18:16:39 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:16:39 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+./src/main.o: In function `main':
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:20: undefined reference to `UDPSocket::sendTo(std::string, std::string, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:33: undefined reference to `UDPSocket::reply(std::string)'
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+18:19:18 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+18:19:19 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:19:19 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+./src/main.o: In function `main':
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:17: undefined reference to `UDPSocket::UDPSocket(int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:18: undefined reference to `UDPSocket::UDPSocket(int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:20: undefined reference to `UDPSocket::sendTo(std::string, std::string, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:23: undefined reference to `UDPSocket::recv(char*, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:33: undefined reference to `UDPSocket::reply(std::string)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:35: undefined reference to `UDPSocket::recv(char*, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:44: undefined reference to `UDPSocket::cclose()'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:45: undefined reference to `UDPSocket::cclose()'
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+18:19:48 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+18:19:49 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:19:49 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+./src/main.o: In function `main':
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:17: undefined reference to `UDPSocket::UDPSocket(int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:18: undefined reference to `UDPSocket::UDPSocket(int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:20: undefined reference to `UDPSocket::sendTo(std::string, std::string, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:23: undefined reference to `UDPSocket::recv(char*, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:33: undefined reference to `UDPSocket::reply(std::string)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:35: undefined reference to `UDPSocket::recv(char*, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:44: undefined reference to `UDPSocket::cclose()'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:45: undefined reference to `UDPSocket::cclose()'
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+18:20:17 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+18:20:18 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:20:18 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+./src/main.o: In function `main':
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:17: undefined reference to `UDPSocket::UDPSocket(int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:18: undefined reference to `UDPSocket::UDPSocket(int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:20: undefined reference to `UDPSocket::sendTo(std::string, std::string, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:23: undefined reference to `UDPSocket::recv(char*, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:33: undefined reference to `UDPSocket::reply(std::string)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:35: undefined reference to `UDPSocket::recv(char*, int)'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:44: undefined reference to `UDPSocket::cclose()'
+/home/user/Desktop/lab3/Lab3-test/Debug/../src/main.cpp:45: undefined reference to `UDPSocket::cclose()'
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-test] Error 1
+18:20:40 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:20:40 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:20:41 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+Finished building target: Lab3-test
+ 
+18:21:12 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:21:13 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+../src/UDPMessenger.cpp: In member function ‘void npl::UDPMessenger::close()’:
+../src/UDPMessenger.cpp:43:13: error: ‘class npl::UDPSocket’ has no member named ‘cclose’
+make: *** [src/UDPMessenger.o] Error 1
+18:21:14 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:21:23 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:21:24 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+./src/main.o: In function `main':
+/home/user/Desktop/lab3/Lab3-UDPMessengerSolution/Debug/../src/main.cpp:23: undefined reference to `UDPMessenger::UDPMessenger()'
+/home/user/Desktop/lab3/Lab3-UDPMessengerSolution/Debug/../src/main.cpp:33: undefined reference to `UDPMessenger::sendTo(std::string, std::string)'
+/home/user/Desktop/lab3/Lab3-UDPMessengerSolution/Debug/../src/main.cpp:37: undefined reference to `UDPMessenger::reply(std::string)'
+/home/user/Desktop/lab3/Lab3-UDPMessengerSolution/Debug/../src/main.cpp:45: undefined reference to `UDPMessenger::close()'
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-UDPMessengerSolution] Error 1
+18:21:25 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:22:23 **** Clean-only build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessengerSolution
+ 
+18:22:23 **** Clean-only build of configuration Debug for project Lab3-UDPSocketSolution ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocketSolution.a
+ 
+18:22:23 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  Lab3-test
+ 
+18:22:28 **** Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocketSolution.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocketSolution.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocketSolution.a
+Finished building target: libLab3-UDPSocketSolution.a
+ 
+18:22:30 **** Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+../src/main.cpp: In function ‘int main()’:
+../src/main.cpp:23:2: error: ‘UDPMessenger’ was not declared in this scope
+../src/main.cpp:23:2: note: suggested alternative:
+In file included from ../src/main.cpp:11:0:
+../src/UDPMessenger.h:17:7: note:   ‘npl::UDPMessenger’
+../src/main.cpp:23:16: error: ‘messenger’ was not declared in this scope
+../src/main.cpp:23:32: error: expected type-specifier before ‘UDPMessenger’
+../src/main.cpp:23:32: error: expected ‘;’ before ‘UDPMessenger’
+../src/main.cpp:46:9: error: type ‘<type error>’ argument given to ‘delete’, expected pointer
+make: *** [src/main.o] Error 1
+18:22:31 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-test"  ./src/main.o   -lLab3-UDPSocketSolution
+Finished building target: Lab3-test
+ 
+18:23:01 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:23:02 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+18:23:03 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:25:04 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:25:05 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+18:25:08 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:25:34 **** Incremental Build of configuration Debug for project Lab3-UDPSocketSolution ****
+make all 
+make: Nothing to be done for `all'.
+18:25:35 **** Incremental Build of configuration Debug for project Lab3-UDPMessengerSolution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessengerSolution
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocketSolution/Debug" -o "Lab3-UDPMessengerSolution"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocketSolution
+Finished building target: Lab3-UDPMessengerSolution
+ 
+18:41:03 **** Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+/usr/bin/ld: cannot find -lLab3-UDPSocket
+collect2: error: ld returned 1 exit status
+make: *** [Lab3-UDPMessenger] Error 1
+18:41:10 **** Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+18:41:10 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/UdpSocketTest.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UdpSocketTest.d" -MT"src/UdpSocketTest.d" -o "src/UdpSocketTest.o" "../src/UdpSocketTest.cpp"
+../src/UdpSocketTest.cpp:11:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UdpSocketTest.o] Error 1
+18:42:19 **** Clean-only build of configuration Debug for project Lab3-UDPMessenger ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessenger
+ 
+18:42:19 **** Clean-only build of configuration Debug for project Lab3-UDPSocket ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocket.a
+ 
+18:42:20 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/UdpSocketTest.o  ./src/UdpSocketTest.d  Lab3-test
+ 
+18:42:23 **** Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+18:42:24 **** Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+Finished building target: Lab3-UDPMessenger
+ 
+18:42:26 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/UdpSocketTest.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UdpSocketTest.d" -MT"src/UdpSocketTest.d" -o "src/UdpSocketTest.o" "../src/UdpSocketTest.cpp"
+Finished building: ../src/UdpSocketTest.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-test"  ./src/UdpSocketTest.o   -lLab3-UDPSocket
+Finished building target: Lab3-test
+ 
+18:43:56 **** Clean-only build of configuration Debug for project Lab3-UDPMessenger ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessenger
+ 
+18:43:57 **** Clean-only build of configuration Debug for project Lab3-UDPSocket ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocket.a
+ 
+18:43:57 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/UdpSocketTest.o  ./src/UdpSocketTest.d  Lab3-test
+ 
+18:44:00 **** Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+18:44:02 **** Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+Finished building target: Lab3-UDPMessenger
+ 
+18:44:04 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/UdpSocketTest.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UdpSocketTest.d" -MT"src/UdpSocketTest.d" -o "src/UdpSocketTest.o" "../src/UdpSocketTest.cpp"
+Finished building: ../src/UdpSocketTest.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-test"  ./src/UdpSocketTest.o   -lLab3-UDPSocket
+Finished building target: Lab3-test
+ 
+18:49:22 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+make: Nothing to be done for `all'.
+18:49:23 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+Finished building target: Lab3-UDPMessenger
+ 
+18:49:24 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:49:29 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+make: Nothing to be done for `all'.
+18:49:29 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+Finished building target: Lab3-UDPMessenger
+ 
+18:49:31 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:50:13 **** Clean-only build of configuration Debug for project Lab3-UDPMessenger ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessenger
+ 
+18:50:14 **** Clean-only build of configuration Debug for project Lab3-UDPSocket ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocket.a
+ 
+18:50:14 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/UdpSocketTest.o  ./src/UdpSocketTest.d  Lab3-test
+ 
+18:50:19 **** Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+18:50:20 **** Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+Finished building target: Lab3-UDPMessenger
+ 
+18:50:22 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/UdpSocketTest.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UdpSocketTest.d" -MT"src/UdpSocketTest.d" -o "src/UdpSocketTest.o" "../src/UdpSocketTest.cpp"
+Finished building: ../src/UdpSocketTest.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-test"  ./src/UdpSocketTest.o   -lLab3-UDPSocket
+Finished building target: Lab3-test
+ 
+18:52:34 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+make: Nothing to be done for `all'.
+18:52:35 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+make: Nothing to be done for `all'.
+18:52:35 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+18:52:42 **** Clean-only build of configuration Debug for project Lab3-UDPMessenger ****
+make clean 
+rm -rf  ./src/UDPMessenger.o ./src/main.o  ./src/UDPMessenger.d ./src/main.d  Lab3-UDPMessenger
+ 
+18:52:42 **** Clean-only build of configuration Debug for project Lab3-UDPSocket ****
+make clean 
+rm -rf  ./src/MThread.o ./src/UDPSocket.o  ./src/MThread.d ./src/UDPSocket.d  libLab3-UDPSocket.a
+ 
+18:52:42 **** Clean-only build of configuration Debug for project Lab3-test ****
+make clean 
+rm -rf  ./src/UdpSocketTest.o  ./src/UdpSocketTest.d  Lab3-test
+ 
+18:52:49 **** Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/MThread.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MThread.d" -MT"src/MThread.d" -o "src/MThread.o" "../src/MThread.cpp"
+Finished building: ../src/MThread.cpp
+ 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+18:52:50 **** Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+Finished building: ../src/UDPMessenger.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+ 
+Building target: Lab3-UDPMessenger
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-UDPMessenger"  ./src/UDPMessenger.o ./src/main.o   -lpthread -lLab3-UDPSocket
+Finished building target: Lab3-UDPMessenger
+ 
+18:52:52 **** Build of configuration Debug for project Lab3-test ****
+make all 
+Building file: ../src/UdpSocketTest.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/user/Desktop/lab3/Lab3-UDPSocket/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UdpSocketTest.d" -MT"src/UdpSocketTest.d" -o "src/UdpSocketTest.o" "../src/UdpSocketTest.cpp"
+Finished building: ../src/UdpSocketTest.cpp
+ 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-test"  ./src/UdpSocketTest.o   -lLab3-UDPSocket
+Finished building target: Lab3-test
+ 
+19:01:02 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+make: Nothing to be done for `all'.
+19:01:03 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+make: Nothing to be done for `all'.
+19:01:04 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+19:02:31 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+make: Nothing to be done for `all'.
+19:02:32 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+make: Nothing to be done for `all'.
+19:02:32 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+19:07:17 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+../src/UDPSocket.cpp: In constructor ‘npl::UDPSocket::UDPSocket(int)’:
+../src/UDPSocket.cpp:29:18: error: ‘s_in’ was not declared in this scope
+../src/UDPSocket.cpp:36:2: error: ‘fsize’ was not declared in this scope
+../src/UDPSocket.cpp: In member function ‘int npl::UDPSocket::recv(char*, int)’:
+../src/UDPSocket.cpp:49:70: error: ‘fsize’ was not declared in this scope
+../src/UDPSocket.cpp:50:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/UDPSocket.o] Error 1
+19:07:19 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+make: Nothing to be done for `all'.
+19:07:19 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+make: Nothing to be done for `all'.
+19:07:28 **** Incremental Build of configuration Debug for project Lab3-UDPSocket ****
+make all 
+Building file: ../src/UDPSocket.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPSocket.d" -MT"src/UDPSocket.d" -o "src/UDPSocket.o" "../src/UDPSocket.cpp"
+../src/UDPSocket.cpp: In member function ‘int npl::UDPSocket::recv(char*, int)’:
+../src/UDPSocket.cpp:40:1: warning: no return statement in function returning non-void [-Wreturn-type]
+Finished building: ../src/UDPSocket.cpp
+ 
+Building target: libLab3-UDPSocket.a
+Invoking: GCC Archiver
+ar -r  "libLab3-UDPSocket.a"  ./src/MThread.o ./src/UDPSocket.o   
+ar: creating libLab3-UDPSocket.a
+Finished building target: libLab3-UDPSocket.a
+ 
+19:07:30 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger ****
+make all 
+make: Nothing to be done for `all'.
+19:07:30 **** Incremental Build of configuration Debug for project Lab3-test ****
+make all 
+Building target: Lab3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/user/Desktop/lab3/Lab3-UDPSocket/Debug" -o "Lab3-test"  ./src/UdpSocketTest.o   -lLab3-UDPSocket
+Finished building target: Lab3-test
+ 

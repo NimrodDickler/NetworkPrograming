@@ -1,0 +1,12 @@
+14:40:07 **** Incremental Build of configuration Debug for project Lab3-UDPMessenger - Solution ****
+make all 
+Building file: ../src/UDPMessenger.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UDPMessenger.d" -MT"src/UDPMessenger.d" -o "src/UDPMessenger.o" "../src/UDPMessenger.cpp"
+In file included from ../src/UDPMessenger.cpp:9:0:
+../src/UDPMessenger.h:10:23: fatal error: UDPSocket.h: No such file or directory
+compilation terminated.
+make: *** [src/UDPMessenger.o] Error 1
+
+14:40:07 Build Finished (took 225ms)
+
