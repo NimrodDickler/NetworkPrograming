@@ -1,0 +1,42 @@
+/*
+ * TcpSocketTest.cpp
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+
+#include "TcpSocketTest.h"
+
+using namespace npl;
+
+bool TcpSocketTest::test(){
+	//sleep(1);
+	TCPSocket* client = new TCPSocket("127.0.0.1",5678);
+	string msg = "12345678901234567890";
+	client->send(msg);
+	char buff[1024];
+	int rc = client->recv(buff,sizeof(buff));
+	buff[rc] = '\0';
+	client->close;
+	delete client;
+
+	if(rc == msg.size()){
+		if(strcmp(msg.c_str(),buff) == 0){
+			return true;
+		}
+	}
+	cerr<<"TCP test failed"<<endl;
+	return false;
+}
+
+void TcpSocketTest::run(){
+	TCPSocket* server = new TCPSocket(5678);
+	TCPSocket* peer = server->listenAndAccept();
+	char buff[1024];
+	int rc = peer->recv(buff,sizeof(buff));
+	buff[rc] = '\0';
+	peer->send(buff);
+	peer->close();
+	delete peer;
+	delete server;
+}

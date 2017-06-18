@@ -1,0 +1,20 @@
+/*
+ * TCPSocket.h
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+
+#ifndef TCPSOCKET_H_
+#define TCPSOCKET_H_
+
+namespace npl{
+
+class TCPSocket {
+
+};
+
+
+}
+
+#endif /* TCPSOCKET_H_ */

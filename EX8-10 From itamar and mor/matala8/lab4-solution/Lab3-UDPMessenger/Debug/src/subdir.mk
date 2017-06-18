@@ -4,15 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../../src/TCPMessengerServer.cpp \
-../../src/main.cpp 
+../src/UDPMessenger.cpp \
+../src/main.cpp 
 
 OBJS += \
-./src/TCPMessengerServer.o \
+./src/UDPMessenger.o \
 ./src/main.o 
 
 CPP_DEPS += \
-./src/TCPMessengerServer.d \
+./src/UDPMessenger.d \
 ./src/main.d 
 
 
@@ -20,7 +20,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I"/home/user/Desktop/labs-code/msocketsLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I"/home/user/Desktop/lab4/lab3/SocketUtils/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

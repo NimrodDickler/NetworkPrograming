@@ -1,0 +1,35 @@
+/*
+ * TCPSocket.h
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+
+#ifndef TCPSOCKET_H_
+#define TCPSOCKET_H_
+
+#include <netinet/in.h>
+#include <inttypes.h>
+#include <strings.h>
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+namespace npl{
+
+class TCPSocket {
+public:
+	TCPSocket(int port);
+	TCPSocket(const string& ip, int port);
+	TCPSocket* listenAndAccept();
+	int recv(char* buffer,int length);
+	int send(const string& msg);
+	void close();
+	string fromAddress();
+
+};
+
+
+}
+
+#endif /* TCPSOCKET_H_ */

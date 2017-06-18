@@ -1,0 +1,16 @@
+/*
+ * TcpSocketTest.cpp
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+
+#include "TcpSocketTest.h"
+
+using namespace npl;
+
+bool TcpSocketTest::test(){
+
+
+	return true;
+}

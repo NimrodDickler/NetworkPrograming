@@ -1,0 +1,19 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+#include "UdpSocketTest.h"
+
+using namespace std;
+using namespace npl;
+
+int main() {
+	UdpSocketTest udpTest;
+	if (!udpTest.test()){
+		cout<<"UDP test failed"<<endl;
+	}
+
+}
+

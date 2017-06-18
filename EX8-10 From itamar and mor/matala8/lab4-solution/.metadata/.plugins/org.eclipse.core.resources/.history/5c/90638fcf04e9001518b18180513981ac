@@ -1,0 +1,17 @@
+/*
+ * TCPSocket.cpp
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+
+#include "TCPSocket.h"
+using namespace npl;
+
+TCPSocket(int port);
+	TCPSocket(const string& ip, int port);
+	TCPSocket* listenAndAccept();
+	int recv(char* buffer,int length);
+	int send(const string& msg);
+	void close();
+	string fromAddress();

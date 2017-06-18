@@ -1,0 +1,34 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+#include "UdpSocketTest.h"
+#include "TcpSocketTest.h"
+
+using namespace std;
+using namespace npl;
+
+int main() {
+	bool passFlag = true;
+	UdpSocketTest udpTest;
+	if (!udpTest.test()){
+		cerr<<endl<<endl<<"UDP test failed"<<endl;
+		passFlag = false;
+	}
+
+	TcpSocketTest tcpTest;
+	if(!tcpTest.test()){
+		cerr<<endl<<endl<<"TCP test failed"<<endl;
+		passFlag = false;
+	}
+
+	if(passFlag){
+		cout<<endl<<endl<<"**** TEST PASS ****"<<endl;
+	}else{
+		cerr<<endl<<endl<<"**** TEST FAIL ****"<<endl;
+	}
+
+}
+

@@ -1,0 +1,14 @@
+/*
+ * TcpSocketTest.h
+ *
+ *  Created on: Mar 13, 2016
+ *      Author: user
+ */
+
+#ifndef TCPSOCKETTEST_H_
+#define TCPSOCKETTEST_H_
+
+class TcpSocketTest {
+};
+
+#endif /* TCPSOCKETTEST_H_ */
