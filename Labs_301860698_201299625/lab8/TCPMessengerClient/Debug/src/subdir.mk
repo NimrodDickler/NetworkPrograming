@@ -6,20 +6,20 @@
 CPP_SRCS += \
 ../src/MThread.cpp \
 ../src/TCPMessengerClient.cpp \
-../src/TCPMessengerClientCli.cpp \
-../src/TCPSocket.cpp 
+../src/TCPSocket.cpp \
+../src/main.cpp 
 
 OBJS += \
 ./src/MThread.o \
 ./src/TCPMessengerClient.o \
-./src/TCPMessengerClientCli.o \
-./src/TCPSocket.o 
+./src/TCPSocket.o \
+./src/main.o 
 
 CPP_DEPS += \
 ./src/MThread.d \
 ./src/TCPMessengerClient.d \
-./src/TCPMessengerClientCli.d \
-./src/TCPSocket.d 
+./src/TCPSocket.d \
+./src/main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

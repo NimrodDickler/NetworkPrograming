@@ -19,10 +19,13 @@ public:
 
 public:
 	virtual void run() = 0;
+
 	void start();
+
 	void waitForThread();
+
 	virtual ~MThread();
 };
 
 }
-#endif /* MTHREAD_H_ */
+#endif
