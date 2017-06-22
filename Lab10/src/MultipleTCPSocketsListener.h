@@ -17,6 +17,8 @@ class MultipleTCPSocketsListener
 
 
 public:
+//	MultipleTCPSocketsListener();
+
 	vector<TCPSocket*> socketVector;
 	/*
 	 * Add the given socket to the socket list to be listen on

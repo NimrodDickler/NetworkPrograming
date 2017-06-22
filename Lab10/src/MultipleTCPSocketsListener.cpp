@@ -7,7 +7,7 @@ using namespace std;
 
 //MultipleTCPSocketsListener::MultipleTCPSocketsListener()
 //{
-//	this->SocketVector=new vector<TCPSocket*>();
+//	this->socketVector=new vector<TCPSocket*>();
 //}
 
 /*

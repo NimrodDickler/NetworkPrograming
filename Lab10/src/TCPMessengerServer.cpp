@@ -31,8 +31,11 @@ void TCPMessengerServer::run()
 	while(isRunning)
 	{
 		peer = this->tcpSocket->listenAndAccept();
-		if((this->dispatcher->addPeer(peer)))
+		if((this->dispatcher->addPeer(peer))) {
 			printf("New client has joined\n");
+			this->listPeers();
+		}
+
 	}
 }
 
