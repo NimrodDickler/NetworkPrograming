@@ -43,9 +43,8 @@ int main() {
 			cout << ipAndPort << endl;
 			client->openSession(ipAndPort);
 		} else if (command == "s") {
-			getline(std::cin, msg);
-			if (msg.size() > 0 && msg[0] == ' ')
-				client->send(msg);
+			cin >> msg;
+			client->send(msg);
 		} else if (command == "cs") {
 			client->closeSession();
 		} else if (command == "d") {

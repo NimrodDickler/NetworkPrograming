@@ -54,19 +54,19 @@ void TCPMessengerClient::sendToServer(int command, const string& data,
 void TCPMessengerClient::readFromServer(int& command, string& data,
 		TCPSocket* sock) {
 	int com;
+	int size, len;
+	char * temp;
 	sock->recv((char*) &com, 4);
 	command = ntohl(com);
 	switch (command) {
 	case SEND_MSG_TO_PEER:
 		cout << "SEND_MSG_TO_PEER" << endl;
-		char buff[1500];
-		int len;
-		sock->recv((char*) &len, 4);
-		len = ntohl(len);
-		sock->recv(buff, len);
-		buff[len] = '\0';
-		data = buff;
-		cout << "message from peer:" << data << endl;
+		sock->recv((char*) &size, 4);
+		size = ntohl(size);
+		temp = new char[size + 1];
+		sock->recv(temp, size);
+		temp[size] = '\0';
+		cout << "message from peer:" << temp << endl;
 		break;
 	case OPEN_SESSION_WITH_PEER:
 		char buff1[1500];
@@ -76,20 +76,26 @@ void TCPMessengerClient::readFromServer(int& command, string& data,
 		sock->recv(buff1, len);
 		buff1[len] = '\0';
 		data = buff1;
+		cout << "OPEN_SESSION_WITH_PEER" << data << endl;
 		break;
 	case CLOSE_SESSION_WITH_PEER:
 		cout << "readFromServer: CLOSE_SESSION_WITH_PEER" << endl << flush;
 		break;
 	case EXIT:
 		cout << "readFromServer: EXIT" << endl << flush;
+		this->stopRun = false;
+		this->sock = NULL;
 		break;
 	case SESSION_REFUSED:
 		cout << "readFromServer:" << SESSION_REFUSED_MSG << endl << flush;
+		this->stopRun = false;
+		this->sock = NULL;
 		break;
 	case SESSION_ESTABLISHED:
 		cout << "readFromServer: SESSION_ESTABLISHED" << endl << flush;
 		break;
 	default:
+
 		break;
 	}
 }

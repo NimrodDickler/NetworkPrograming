@@ -38,25 +38,25 @@ void Broker::run() {
 void Broker::sendMessage(TCPSocket * sender) {
 
 	int size, msg;
-	char * temp;
 	for (unsigned int i = 0; i < this->socketListener.socketVector.size();
 			i++) {
 		if (this->socketListener.socketVector[i]->getSocketFid()
 				!= sender->getSocketFid()) {
 			msg = sender->recv((char*) &size, 4);
-			if (!sizeOfMessageCheck(msg))
-				return; //validation
 			size = ntohl(size);
-			temp = new char[size + 1];
+			char temp[size + 1];
 			msg = sender->recv(temp, size);
-			if (!sizeOfMessageCheck(msg))
-				return; //validation
 			temp[size] = '\0';
-			cout << "Server: " << temp << endl;
-			int command = htonl(SEND_MSG_TO_PEER);
-			msg = this->socketListener.socketVector[i]->send((char*) &command, 4);
-			msg = this->socketListener.socketVector[i]->send((char*) &size, 4);
-			msg = this->socketListener.socketVector[i]->send(temp, size);
+			string data = temp;
+
+			char com[4];
+			*((int*) com) = htonl(SEND_MSG_TO_PEER);
+			this->socketListener.socketVector[i]->send(com, 4);
+			char len[4];
+			*((int*) len) = htonl(size);
+			this->socketListener.socketVector[i]->send(len, 4);
+			strcpy(temp, data.c_str());
+			this->socketListener.socketVector[i]->send(temp, data.length());
 		}
 	}
 

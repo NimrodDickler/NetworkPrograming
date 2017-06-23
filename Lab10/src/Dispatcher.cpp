@@ -85,11 +85,11 @@ void Dispatcher::startSession(TCPSocket * sessionPeer) {
 		if (this->peersMap->at(sessionPeerAddress) != NULL
 				&& this->peersMap->at(peerAddress) != NULL) {
 			broker = new Broker(this, sessionPeer, this->peersMap->at(peerAddress));
-			broker->start();
 			this->peersMgr->removeSocket(sessionPeer);
 			this->peersMgr->removeSocket(this->peersMap->at(peerAddress));
 			this->peersMap->at(peerAddress) = NULL;
 			this->peersMap->at(sessionPeerAddress) = NULL;
+			broker->start();
 		} else {
 			sessionPeer->send((char*) &command, 4);
 		}
