@@ -1,6 +1,0 @@
-11:56:12 **** Build of configuration Build (GNU) for project Lab8-TCPMessengerServer ****
-make all 
-make: *** No rule to make target 'all'.  Stop.
-
-11:56:12 Build Finished (took 382ms)
-
