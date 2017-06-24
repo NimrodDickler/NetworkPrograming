@@ -8,7 +8,6 @@ void printInstructions(){
 	cout<<"lp - list peers"<<endl;
 	cout<<"x - shutdown server"<<endl;
 	cout<<"-----------------------"<<endl;
-
 }
 
 int main(){
