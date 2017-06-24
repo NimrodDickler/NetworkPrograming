@@ -4,12 +4,15 @@
 using namespace std;
 
 void printInstructions(){
-	cout<<"To list all opened peers type: lp"<<endl;
-	cout<<"To exit type: x"<<endl;
+	cout<<"-----------------------"<<endl;
+	cout<<"lp - list peers"<<endl;
+	cout<<"x - shutdown server"<<endl;
+	cout<<"-----------------------"<<endl;
+
 }
 
 int main(){
-	cout<<"Welcome to TCP messenger Server"<<endl;
+	cout<<"Welcome to TCP messenger Server P2"<<endl;
 	printInstructions();
 	TCPMessengerServer msngrServer;
 	bool loop = true;
@@ -26,7 +29,6 @@ int main(){
 			printInstructions();
 		}
 	}
-	cout << "END CMD";
 	msngrServer.close();
 	cout<<"messenger was closed"<<endl;
 	return 0;
