@@ -1,17 +1,15 @@
 #include "Dispatcher.h"
 #include "Broker.h"
 
-/*
- * Inits members
- */
 Dispatcher::Dispatcher() {
+	// init for listen for new messages from the active peers
 	this->peersMgr = new MultipleTCPSocketsListener();
+
 	this->peersMap = new map<string, TCPSocket *>();
 }
-/*
- * Adds a new peer connection to the server vector handler
- */
+
 bool Dispatcher::addPeer(TCPSocket * peer) {
+	// add new peer to map, by ip and port
 	char * temp = new char[SIZE];
 	string address;
 	if (this->peersMgr->addSocket(peer)) {
@@ -22,27 +20,22 @@ bool Dispatcher::addPeer(TCPSocket * peer) {
 		return true;
 	}
 	return false;
-
 }
-/*
- * Removes a peer from server connected peers, closing session if he has one open
- */
 bool Dispatcher::removePeer(TCPSocket * peer) {
+	// remove active peer from map
 	string address = peer->addrPort();
 	if (this->peersMap->find(address) != this->peersMap->end())
 		this->peersMap->erase(address);
 	this->peersMgr->RemoveAndCloseSocket(peer);
 	return true;
 }
-/*
- * Begins the thread
- */
+
 void Dispatcher::run() {
+	// wait from new incoming message
 	this->listenToMessages();
 }
-/*
- * Endless loop to listen to messages from peers and handle them
- */
+
+// wait for peering request from one of the active peers
 void Dispatcher::listenToMessages() {
 	TCPSocket * newSocket;
 	int command;
@@ -59,31 +52,31 @@ void Dispatcher::listenToMessages() {
 		sleep(0.5);
 	}
 }
-/*
- * Opens a new session, session peer is the connecting side, received message for ip:port is the connected side
- */
+
 void Dispatcher::startSession(TCPSocket * sessionPeer) {
 	int size, msg;
-	string peerAddress, lastPeer;
 	char * temp;
+	string peerAddress, lastPeer;
+	string sessionPeerAddress = sessionPeer->addrPort();
+	Broker * broker;
+
 	msg = sessionPeer->recv((char*) &size, 4);
 	size = ntohs(size);
 	temp = new char[size + 1];
 	sessionPeer->recv(temp, size);
 	temp[size] = '\0';
-	//
-	char buffer[1024];
-	string sessionPeerAddress = sessionPeer->addrPort();
-	Broker * broker;
-	int bufferSize;
-	bufferSize = sessionPeer->recv(buffer, SIZE);
-	buffer[bufferSize] = '\0';
+
+	char buffer[SIZE];
+	size = sessionPeer->recv(buffer, SIZE);
+	buffer[size] = '\0';
 	peerAddress = buffer;
 	int command = htonl(SESSION_REFUSED);
+	// verify that the target and the source peers are valid and active
 	if (this->peersMap->find(sessionPeerAddress) != this->peersMap->end()
 			&& this->peersMap->find(peerAddress) != this->peersMap->end()) {
 		if (this->peersMap->at(sessionPeerAddress) != NULL
 				&& this->peersMap->at(peerAddress) != NULL) {
+			// peer the two clients & remove from the active peer map
 			broker = new Broker(this, sessionPeer, this->peersMap->at(peerAddress));
 			this->peersMgr->removeSocket(sessionPeer);
 			this->peersMgr->removeSocket(this->peersMap->at(peerAddress));
@@ -91,15 +84,19 @@ void Dispatcher::startSession(TCPSocket * sessionPeer) {
 			this->peersMap->at(sessionPeerAddress) = NULL;
 			broker->start();
 		} else {
+			// return connection refuse in case of invalid source or target
 			sessionPeer->send((char*) &command, 4);
 		}
 	} else {
+		// return connection refuse in case of invalid source or target
 		sessionPeer->send((char*) &command, 4);
 	}
 }
+
 void Dispatcher::openConnection(vector<TCPSocket*> tcpSocketVector,
 		TCPSocket * exitSocket) {
 	for (unsigned int i = 0; i < tcpSocketVector.size(); i++) {
+		// in case of closing peer to peer connection, return the clients to active peers map
 		if (this->peersMap->find(tcpSocketVector[i]->addrPort())
 				!= this->peersMap->end()) {
 			string address = tcpSocketVector[i]->addrPort();
@@ -110,9 +107,6 @@ void Dispatcher::openConnection(vector<TCPSocket*> tcpSocketVector,
 	if (exitSocket != NULL)
 		this->removePeer(exitSocket);
 }
-/*
- * Closes sessionPeer's session, closes both sides
- */
 
 Dispatcher::~Dispatcher() {
 	for (unsigned int i = 0; i < this->peersMgr->socketVector.size(); i++)

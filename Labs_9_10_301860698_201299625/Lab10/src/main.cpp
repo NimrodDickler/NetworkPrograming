@@ -11,14 +11,14 @@ void printInstructions(){
 int main(){
 	cout<<"Welcome to TCP messenger Server"<<endl;
 	printInstructions();
-	TCPMessengerServer msngrServer;
+	TCPMessengerServer server;
 	bool loop = true;
 	while(loop){
 		string msg;
 		string command;
 		cin >> command;
 		if(command == "lp"){
-			msngrServer.listPeers();
+			server.listPeers();
 		}else if(command == "x"){
 			loop = false;
 		}else{
@@ -27,6 +27,6 @@ int main(){
 		}
 	}
 	cout<<"messenger was closed"<<endl;
-	msngrServer.close();
+	server.close();
 	return 0;
 }

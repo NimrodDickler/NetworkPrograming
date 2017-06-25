@@ -13,7 +13,6 @@ private:
 public:
 	Broker(Dispatcher * dis, TCPSocket * peerOne, TCPSocket * peerTwo);
 	void sendMessage(TCPSocket * sender);
-	bool sizeOfMessageCheck(int size);
 	virtual void run();
 	void close(bool closeConn, TCPSocket * closeSocket);
 	virtual ~Broker();

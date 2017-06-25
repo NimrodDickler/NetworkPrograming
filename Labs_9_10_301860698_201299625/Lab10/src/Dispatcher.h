@@ -15,13 +15,21 @@ private:
 	map <string, TCPSocket *> * peersMap;
 public:
 	MultipleTCPSocketsListener * peersMgr;
+
 	Dispatcher();
+
 	bool addPeer(TCPSocket * peer);
+
 	bool removePeer(TCPSocket * peer);
+
 	void listenToMessages();
+
 	void startSession(TCPSocket * sessionPeer);
+
 	void openConnection(vector<TCPSocket*> Peers,TCPSocket * exitSocket=NULL);
+
 	virtual void run();
+
 	virtual ~Dispatcher();
 };
 
