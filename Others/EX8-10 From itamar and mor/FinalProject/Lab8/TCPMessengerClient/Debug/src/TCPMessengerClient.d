@@ -1,4 +1,4 @@
-src/TCPMessengerClient.d: ../src/TCPMessengerClient.cpp \
+src/TCPMessengerClient.o: ../src/TCPMessengerClient.cpp \
  ../src/TCPMessengerClient.h ../src/MThread.h ../src/TCPSocket.h \
  ../src/UDPHandeler.h ../src/UDPSocket.h ../src/TCPMessengerProtocol.h
 

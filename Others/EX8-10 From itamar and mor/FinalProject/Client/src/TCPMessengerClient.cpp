@@ -67,7 +67,7 @@ void TCPMessengerClient::disconnect()
 			closeActiveSession();
 		}
 		TCPtoServerCommandProtocol(DISCONNECT);
-		system("sleep 1");
+//		system("sleep 1");
 		serverConnected = false;
 		UDPmanager->UDPserverConnected = false;
 		clientSock->cclose();
@@ -285,7 +285,7 @@ void TCPMessengerClient::run()
 				{
 					closeActiveSession();
 				}
-				system("sleep 1");
+//				system("sleep 1");
 				serverConnected = false;
 				UDPmanager->UDPserverConnected = false;
 				clientSock->cclose();
@@ -449,6 +449,5 @@ void TCPMessengerClient::PrintAllUsers()
 		TCPtoServerCommandProtocol(REG_USERS);
 	}
 }
-
 
 

@@ -46,7 +46,7 @@ void TCPMessengerServer::run()
 			{
 				bool isAlreadyConnected=false;
 				string tempName;
-				for(int i =0 ; i< this->openPeerVect.size();i++)
+				for(int i = 0 ; i< (int)this->openPeerVect.size();i++)
 				{
 					tempName = this->ipToName(this->openPeerVect.at(i)->destIpAndPort());
 					if(userName==tempName)
