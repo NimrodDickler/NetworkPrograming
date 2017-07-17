@@ -135,6 +135,8 @@ int main() {
 			}
 			else
 				cout << "You don't have any requests to reject" << endl;
+		} else if (command == "random") {
+			client->TCPtoServerCommandProtocol(RETURN_RANDOM_ACTIVE_USER);
 		}
 		else {
 			cout << "Wrong input" << endl;

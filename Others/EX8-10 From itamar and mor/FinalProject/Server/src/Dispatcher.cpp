@@ -83,6 +83,12 @@ void Dispatcher::run()
 				break;
 			}
 
+			case RETURN_RANDOM_ACTIVE_USER:
+			{
+				returnRandomActiveUser(user);
+				break;
+			}
+
 //			case USERS_IN_ROOM:
 //			{
 //				printUsersInRoom(user);
@@ -110,53 +116,6 @@ void Dispatcher::run()
 		}
 	}
 }
-//
-//void Dispatcher::createRoom(TCPSocket* user)
-//{
-//	string roomName = server->RecieveMessageFromTCP(user);
-//	int roomIndex = server->findInRooms(roomName);
-//
-//	//This room is already exist
-//	if(roomIndex!=-1)
-//	{
-//		server->SendCommandToTCP(ROOM_NOT_UNIQUE,user);
-//	}
-//	else
-//	{
-//		string owner = server->ipToName(user->destIpAndPort());
-//		server->Rooms.push_back(new Room(roomName,user->destIpAndPort(),owner));
-//		server->SendCommandToTCP(CREATE_ROOM_APPROVED,user);
-//	}
-//}
-//
-//void Dispatcher::leaveRoom(TCPSocket* user)
-//{
-//	string roomNametoLeave = server->RecieveMessageFromTCP(user);
-//	int roomIndex = this->server->findInRooms(roomNametoLeave);
-//	server->Rooms.at(roomIndex)->RemoveUserFromRoom(user->destIpAndPort());
-//	string tempNameFromIp= server->ipToName(user->destIpAndPort());
-//	server->SendMsgToAllUsersInRoom(LEAVE_ROOM,roomNametoLeave,tempNameFromIp);
-//	server->SendCommandToTCP(EXIT_ROOM, user);
-//}
-//
-//void Dispatcher::joinRoom(TCPSocket* user)
-//{
-//	string roomName = server->RecieveMessageFromTCP(user);
-//	int roomIndex=server->findInRooms(roomName);
-//
-//	if(roomIndex!=-1)
-//	{
-//		server->SendCommandToTCP(JOIN_ROOM_ARPROVED,user);
-//		server->SendMsgToTCP(roomName,user);
-//		server->Rooms.at(roomIndex)->AddUserToRoom(user->destIpAndPort());
-//		string userNameToSend = server->ipToName(user->destIpAndPort());
-//		server->SendMsgToAllUsersInRoom(JOIN_ROOM,roomName,userNameToSend); //inform all users
-//	}
-//	else
-//	{
-//		server->SendCommandToTCP(NO_SUCH_ROOM,user);
-//	}
-//}
 
 
 
@@ -180,6 +139,25 @@ void Dispatcher::printConnectedUsers(TCPSocket * user)
 		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
 		server->SendCommandToTCP(numberOfUsers,user);
 		server->SendMsgToTCP(stringOfUsersName,user);
+	}
+}
+
+void Dispatcher::returnRandomActiveUser(TCPSocket * user)
+{
+	string tempNameFromIp;
+	int numberOfUsers = server->openPeerVect.size();
+	TCPSocket* randomUser;
+
+	randomUser = server->openPeerVect.at(rand() % (numberOfUsers));
+	while (randomUser == user){
+		randomUser = server->openPeerVect.at(rand() % (numberOfUsers));
+	}
+	tempNameFromIp = server->ipToName(randomUser->destIpAndPort());
+	cout << "tempNameFromIp: " << tempNameFromIp << endl;
+	if(numberOfUsers > 1)
+	{
+		server->SendCommandToTCP(RETURN_RANDOM_ACTIVE_USER,user);
+		server->SendMsgToTCP(tempNameFromIp,user);
 	}
 }
 

@@ -37,6 +37,7 @@ class Dispatcher:public MThread
 //		void printRoomList(TCPSocket* user);
 //		void printUsersInRoom(TCPSocket* user);
 		void printRegisteredUsers(TCPSocket* user);
+		void returnRandomActiveUser(TCPSocket* user);
 		void disconnect(TCPSocket* user);
 };
 
