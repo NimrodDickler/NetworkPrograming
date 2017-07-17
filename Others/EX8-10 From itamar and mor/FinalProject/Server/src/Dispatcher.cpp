@@ -43,13 +43,18 @@ void Dispatcher::run()
 				openSession(user);
 				break;
 			}
+			case REQUEST_TO_OPEN_SESSION:
+			{
+				requestToOpenSession(user);
+				break;
+			}
 
 			//Get the room name and add the user to that room
-			case JOIN_ROOM:
+			/*case JOIN_ROOM:
 			{
 				joinRoom(user);
 				break;
-			}
+			}*/
 
 			case CLOSE_SESSION_WITH_PEER:
 			{
@@ -58,18 +63,18 @@ void Dispatcher::run()
 			}
 
 			//Create room and save the owner
-			case CREATE_NEW_ROOM:
-			{
-				createRoom(user);
-				break;
-			}
+//			case CREATE_NEW_ROOM:
+//			{
+//				createRoom(user);
+//				break;
+//			}
 
 			//Remove user from room
-			case LEAVE_ROOM:
-			{
-				leaveRoom(user);
-				break;
-			}
+//			case LEAVE_ROOM:
+//			{
+//				leaveRoom(user);
+//				break;
+//			}
 
 			//Print all connected users
 			case CONNECTED_USERS:
@@ -78,18 +83,18 @@ void Dispatcher::run()
 				break;
 			}
 
-			case USERS_IN_ROOM:
-			{
-				printUsersInRoom(user);
-				break;
-			}
+//			case USERS_IN_ROOM:
+//			{
+//				printUsersInRoom(user);
+//				break;
+//			}
 
 			//Print available rooms
-			case EXISTED_ROOMS:
-			{
-				printRoomList(user);
-				break;
-			}
+//			case EXISTED_ROOMS:
+//			{
+//				printRoomList(user);
+//				break;
+//			}
 
 			case REG_USERS:
 			{
@@ -105,53 +110,53 @@ void Dispatcher::run()
 		}
 	}
 }
-
-void Dispatcher::createRoom(TCPSocket* user)
-{
-	string roomName = server->RecieveMessageFromTCP(user);
-	int roomIndex = server->findInRooms(roomName);
-
-	//This room is already exist
-	if(roomIndex!=-1)
-	{
-		server->SendCommandToTCP(ROOM_NOT_UNIQUE,user);
-	}
-	else
-	{
-		string owner = server->ipToName(user->destIpAndPort());
-		server->Rooms.push_back(new Room(roomName,user->destIpAndPort(),owner));
-		server->SendCommandToTCP(CREATE_ROOM_APPROVED,user);
-	}
-}
-
-void Dispatcher::leaveRoom(TCPSocket* user)
-{
-	string roomNametoLeave = server->RecieveMessageFromTCP(user);
-	int roomIndex = this->server->findInRooms(roomNametoLeave);
-	server->Rooms.at(roomIndex)->RemoveUserFromRoom(user->destIpAndPort());
-	string tempNameFromIp= server->ipToName(user->destIpAndPort());
-	server->SendMsgToAllUsersInRoom(LEAVE_ROOM,roomNametoLeave,tempNameFromIp);
-	server->SendCommandToTCP(EXIT_ROOM, user);
-}
-
-void Dispatcher::joinRoom(TCPSocket* user)
-{
-	string roomName = server->RecieveMessageFromTCP(user);
-	int roomIndex=server->findInRooms(roomName);
-
-	if(roomIndex!=-1)
-	{
-		server->SendCommandToTCP(JOIN_ROOM_ARPROVED,user);
-		server->SendMsgToTCP(roomName,user);
-		server->Rooms.at(roomIndex)->AddUserToRoom(user->destIpAndPort());
-		string userNameToSend = server->ipToName(user->destIpAndPort());
-		server->SendMsgToAllUsersInRoom(JOIN_ROOM,roomName,userNameToSend); //inform all users
-	}
-	else
-	{
-		server->SendCommandToTCP(NO_SUCH_ROOM,user);
-	}
-}
+//
+//void Dispatcher::createRoom(TCPSocket* user)
+//{
+//	string roomName = server->RecieveMessageFromTCP(user);
+//	int roomIndex = server->findInRooms(roomName);
+//
+//	//This room is already exist
+//	if(roomIndex!=-1)
+//	{
+//		server->SendCommandToTCP(ROOM_NOT_UNIQUE,user);
+//	}
+//	else
+//	{
+//		string owner = server->ipToName(user->destIpAndPort());
+//		server->Rooms.push_back(new Room(roomName,user->destIpAndPort(),owner));
+//		server->SendCommandToTCP(CREATE_ROOM_APPROVED,user);
+//	}
+//}
+//
+//void Dispatcher::leaveRoom(TCPSocket* user)
+//{
+//	string roomNametoLeave = server->RecieveMessageFromTCP(user);
+//	int roomIndex = this->server->findInRooms(roomNametoLeave);
+//	server->Rooms.at(roomIndex)->RemoveUserFromRoom(user->destIpAndPort());
+//	string tempNameFromIp= server->ipToName(user->destIpAndPort());
+//	server->SendMsgToAllUsersInRoom(LEAVE_ROOM,roomNametoLeave,tempNameFromIp);
+//	server->SendCommandToTCP(EXIT_ROOM, user);
+//}
+//
+//void Dispatcher::joinRoom(TCPSocket* user)
+//{
+//	string roomName = server->RecieveMessageFromTCP(user);
+//	int roomIndex=server->findInRooms(roomName);
+//
+//	if(roomIndex!=-1)
+//	{
+//		server->SendCommandToTCP(JOIN_ROOM_ARPROVED,user);
+//		server->SendMsgToTCP(roomName,user);
+//		server->Rooms.at(roomIndex)->AddUserToRoom(user->destIpAndPort());
+//		string userNameToSend = server->ipToName(user->destIpAndPort());
+//		server->SendMsgToAllUsersInRoom(JOIN_ROOM,roomName,userNameToSend); //inform all users
+//	}
+//	else
+//	{
+//		server->SendCommandToTCP(NO_SUCH_ROOM,user);
+//	}
+//}
 
 
 
@@ -219,6 +224,63 @@ void Dispatcher::openSession(TCPSocket* user)
 	}
 }
 
+
+void Dispatcher::requestToOpenSession(TCPSocket* user)
+{
+	string requested_username = server->RecieveMessageFromTCP(user);
+	string requested_userIP = server->nameToIp(requested_username);
+	string MTLTCPname = server->ipToName(user->destIpAndPort());
+
+	//Checks if the requested user is connected
+	if(strcmp(requested_userIP.c_str(),"Client not found") != 0)
+	{
+		int indexOfrequestedPeer = server->findVector(requested_userIP);
+
+		TCPSocket* tempTCPPeerToConnect = server->openPeerVect.at(indexOfrequestedPeer);
+		server->SendCommandToTCP(REQUEST_TO_OPEN_SESSION,tempTCPPeerToConnect);
+		server->SendMsgToTCP(MTLTCPname+" "+user->destIpAndPort(),tempTCPPeerToConnect);
+
+		switch(server->RecieveCommandFromTCP(tempTCPPeerToConnect))
+		{
+			case APPROVE_SESSION_REQUEST:
+			{
+				server->SendCommandToTCP(OPEN_SESSION_WITH_PEER,tempTCPPeerToConnect);
+
+				switch(server->RecieveCommandFromTCP(tempTCPPeerToConnect))
+				{
+					case AVAILABLE:
+					{
+						server->SendCommandToTCP(SESSION_ESTABLISHED,user);
+						server->SendMsgToTCP(requested_username+" "+requested_userIP,user);
+						server->SendCommandToTCP(SESSION_ESTABLISHED,tempTCPPeerToConnect);
+						server->SendMsgToTCP(MTLTCPname+" "+user->destIpAndPort(),tempTCPPeerToConnect);
+						server->session1.push_back(user->destIpAndPort());
+						server->session2.push_back(tempTCPPeerToConnect->destIpAndPort());
+						cout << "User is available" << endl;
+						break;
+					}
+					default:
+					{
+						server->SendCommandToTCP(SESSION_REFUSED,user);
+						break;
+					}
+				}
+				break;
+			}
+			default:
+			{
+				server->SendCommandToTCP(REJECT_SESSION_REQUEST,user);
+				break;
+			}
+		}
+	}
+	//If not, print error message
+	else
+	{
+		server->SendCommandToTCP(SESSION_REFUSED,user);
+	}
+}
+
 void Dispatcher::closeSession(TCPSocket* user)
 {
 	unsigned int i;
@@ -241,60 +303,60 @@ void Dispatcher::closeSession(TCPSocket* user)
 	server->session2.erase(server->session2.begin()+i);
 	server->SendCommandToTCP(CLOSE_SESSION_WITH_PEER,server->openPeerVect.at(indexInOpenVect));
 }
-
-void Dispatcher::printRoomList(TCPSocket* user)
-{
-	int numOfRoom = server->Rooms.size();
-	string stringOfRooms;
-	for(unsigned int i=0;i<server->Rooms.size();i++)
-	{
-		stringOfRooms.append(server->Rooms.at(i)->name);
-		if(i!=server->Rooms.size()-1)
-		{
-			stringOfRooms.append(" ");
-		}
-	}
-	if(numOfRoom > 0)
-	{
-		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
-		server->SendCommandToTCP(numOfRoom,user);
-		server->SendMsgToTCP(stringOfRooms,user);
-	}
-	else
-	{
-		//36 means NO_ROOMS (define not working)
-		server->SendCommandToTCP(NO_ROOMS, user);
-	}
-}
-
-void Dispatcher::printUsersInRoom(TCPSocket* user)
-{
-	string roomNameFromClient = server->RecieveMessageFromTCP(user);
-	int roomIndex=server->findInRooms(roomNameFromClient);
-
-	if(roomIndex != -1)
-	{
-		string stringOfUsersName;
-		string tempNameFromIp;
-		for(unsigned int i=0;i< server->Rooms.at(roomIndex)->users.size();i++)
-		{
-			tempNameFromIp=server->ipToName(server->Rooms.at(roomIndex)->users.at(i));
-			stringOfUsersName.append(tempNameFromIp);
-			if(i != server->Rooms.at(roomIndex)->users.size()-1)
-			stringOfUsersName.append(" ");
-		}
-
-		int numOfUsersInRoom = server->Rooms.at(roomIndex)->users.size();
-
-		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
-		server->SendCommandToTCP(numOfUsersInRoom,user);
-		server->SendMsgToTCP(stringOfUsersName,user);
-	}
-	else
-	{
-		server->SendCommandToTCP(NO_SUCH_ROOM,user);
-	}
-}
+//
+//void Dispatcher::printRoomList(TCPSocket* user)
+//{
+//	int numOfRoom = server->Rooms.size();
+//	string stringOfRooms;
+//	for(unsigned int i=0;i<server->Rooms.size();i++)
+//	{
+//		stringOfRooms.append(server->Rooms.at(i)->name);
+//		if(i!=server->Rooms.size()-1)
+//		{
+//			stringOfRooms.append(" ");
+//		}
+//	}
+//	if(numOfRoom > 0)
+//	{
+//		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
+//		server->SendCommandToTCP(numOfRoom,user);
+//		server->SendMsgToTCP(stringOfRooms,user);
+//	}
+//	else
+//	{
+//		//36 means NO_ROOMS (define not working)
+//		server->SendCommandToTCP(NO_ROOMS, user);
+//	}
+//}
+//
+//void Dispatcher::printUsersInRoom(TCPSocket* user)
+//{
+//	string roomNameFromClient = server->RecieveMessageFromTCP(user);
+//	int roomIndex=server->findInRooms(roomNameFromClient);
+//
+//	if(roomIndex != -1)
+//	{
+//		string stringOfUsersName;
+//		string tempNameFromIp;
+//		for(unsigned int i=0;i< server->Rooms.at(roomIndex)->users.size();i++)
+//		{
+//			tempNameFromIp=server->ipToName(server->Rooms.at(roomIndex)->users.at(i));
+//			stringOfUsersName.append(tempNameFromIp);
+//			if(i != server->Rooms.at(roomIndex)->users.size()-1)
+//			stringOfUsersName.append(" ");
+//		}
+//
+//		int numOfUsersInRoom = server->Rooms.at(roomIndex)->users.size();
+//
+//		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
+//		server->SendCommandToTCP(numOfUsersInRoom,user);
+//		server->SendMsgToTCP(stringOfUsersName,user);
+//	}
+//	else
+//	{
+//		server->SendCommandToTCP(NO_SUCH_ROOM,user);
+//	}
+//}
 
 void Dispatcher::printRegisteredUsers(TCPSocket* user)
 {

@@ -58,10 +58,10 @@ void TCPMessengerClient::disconnect()
 {
 	if(state != NOT_CONNECTED)
 	{
-		if(state == IN_ROOM)
-		{
-			LeaveCurrentRoom();
-		}
+//		if(state == IN_ROOM)
+//		{
+//			LeaveCurrentRoom();
+//		}
 		if(state == IN_SESSION)
 		{
 			closeActiveSession();
@@ -81,7 +81,7 @@ void TCPMessengerClient::disconnect()
 }
 
 //Open a session with the given peer address (ip:port)
-bool TCPMessengerClient::open(string typeOfSession,string name)
+void TCPMessengerClient::open(string typeOfSession,string name)
 {
 	if(isConnected())
 	{
@@ -89,24 +89,17 @@ bool TCPMessengerClient::open(string typeOfSession,string name)
 	  {
 		  if(strcmp(typeOfSession.c_str(),"user") == 0)
 		  {
-			  TCPtoServerMessage(name,OPEN_SESSION_WITH_PEER);
+			  TCPtoServerMessage(name,REQUEST_TO_OPEN_SESSION);
 		  }
-		  if(strcmp(typeOfSession.c_str(),"room") == 0)
-		  {
-			  TCPtoServerMessage(name,JOIN_ROOM);
-		  }
-		  return true;
 	  }
 	  else
 	  {
 		  cout << "Session is already opened" << endl;
-		  return false;
 	  }
 	}
 	else
 	{
 		cout << "You are not connected to a server" << endl;
-		return false;
 	}
 }
 
@@ -142,6 +135,23 @@ void TCPMessengerClient::run()
 			case SESSION_REFUSED:
 			{
 				cout << "Could not open session" << endl;
+				break;
+			}
+			case REJECT_SESSION_REQUEST:
+			{
+				cout << "Could not open session, session was rejected" << endl;
+				break;
+			}
+			case REQUEST_TO_OPEN_SESSION:
+			{
+				int msgLen;
+				string answer;
+				clientSock->recv((char*)&msgLen,4);
+				msgLen = ntohl(msgLen);
+				clientSock->recv(buffer, msgLen);
+				cout<<"you have new game request from "<<buffer<<endl;
+				cout<<"Enter yes to approve or no to reject: "<<endl;
+				state = PENDING;
 				break;
 			}
 			case OPEN_SESSION_WITH_PEER:
@@ -180,78 +190,78 @@ void TCPMessengerClient::run()
 				inSessionWith = "none";
 				break;
 			}
-			case ROOM_NOT_UNIQUE:
-			{
-				roomName = "none";
-				cout << "Room name is already exists! please choose another room name" << endl;
-				break;
-			}
-			case CREATE_ROOM_APPROVED:
-			{
-				state = IN_ROOM;
-				cout << "The room is created" << endl;
-				break;
-			}
-			case JOIN_ROOM_ARPROVED:
-			{
-				int msgLen;
-				clientSock->recv((char*)&msgLen,4);
-				msgLen = ntohl(msgLen);
-				clientSock->recv(buffer, msgLen);
-				cout << "You are member in room: "<< buffer << endl;
-				state = IN_ROOM;
-				roomName = buffer;
-				break;
-			}
-			case NO_SUCH_ROOM:
-			{
-				cout << "This room is not exist" << endl;
-				break;
-			}
+//			case ROOM_NOT_UNIQUE:
+//			{
+//				roomName = "none";
+//				cout << "Room name is already exists! please choose another room name" << endl;
+//				break;
+//			}
+//			case CREATE_ROOM_APPROVED:
+//			{
+//				state = IN_ROOM;
+//				cout << "The room is created" << endl;
+//				break;
+//			}
+//			case JOIN_ROOM_ARPROVED:
+//			{
+//				int msgLen;
+//				clientSock->recv((char*)&msgLen,4);
+//				msgLen = ntohl(msgLen);
+//				clientSock->recv(buffer, msgLen);
+//				cout << "You are member in room: "<< buffer << endl;
+//				state = IN_ROOM;
+//				roomName = buffer;
+//				break;
+//			}
+//			case NO_SUCH_ROOM:
+//			{
+//				cout << "This room is not exist" << endl;
+//				break;
+//			}
 
 			//Update room members
-			case ROOM_STATUS_CHANGED:
-			{
-				int msgLen2;
-				clientSock->recv((char*)&msgLen2,4);
-				msgLen2 = ntohl(msgLen2);
-				clientSock->recv(buffer, msgLen2);
-				cout << buffer << endl;
-				int numofUsersInString;
-				clientSock->recv((char*)&numofUsersInString,4);
-				numofUsersInString = ntohl(numofUsersInString);
-				bzero(buffer,1024);
-				int msgLen;
-				clientSock->recv((char*)&msgLen,4);
-				msgLen = ntohl(msgLen);
-				clientSock->recv(buffer, msgLen);
-				UDPmanager->listOfUsersInRoom.clear();
-				string tempUserInRoom;
-				tempUserInRoom = strtok(buffer," ");
-
-				for(int i =0; i<numofUsersInString-1;i++)
-				{
-					UDPmanager->listOfUsersInRoom.push_back(tempUserInRoom);
-					tempUserInRoom=strtok(NULL," ");
-				}
-
-				UDPmanager->listOfUsersInRoom.push_back(tempUserInRoom);
-				break;
-			}
+//			case ROOM_STATUS_CHANGED:
+//			{
+//				int msgLen2;
+//				clientSock->recv((char*)&msgLen2,4);
+//				msgLen2 = ntohl(msgLen2);
+//				clientSock->recv(buffer, msgLen2);
+//				cout << buffer << endl;
+//				int numofUsersInString;
+//				clientSock->recv((char*)&numofUsersInString,4);
+//				numofUsersInString = ntohl(numofUsersInString);
+//				bzero(buffer,1024);
+//				int msgLen;
+//				clientSock->recv((char*)&msgLen,4);
+//				msgLen = ntohl(msgLen);
+//				clientSock->recv(buffer, msgLen);
+//				UDPmanager->listOfUsersInRoom.clear();
+//				string tempUserInRoom;
+//				tempUserInRoom = strtok(buffer," ");
+//
+//				for(int i =0; i<numofUsersInString-1;i++)
+//				{
+//					UDPmanager->listOfUsersInRoom.push_back(tempUserInRoom);
+//					tempUserInRoom=strtok(NULL," ");
+//				}
+//
+//				UDPmanager->listOfUsersInRoom.push_back(tempUserInRoom);
+//				break;
+//			}
 
 			//NO_ROOMS ; define is not working
-			case 36:
-			{
-				cout << "There are no opened rooms" << endl;
-				break;
-			}
-
-			//EXIT_ROOM ; define is not working
-			case 37:
-			{
-				cout << "You have left the room" << endl;
-				break;
-			}
+//			case 36:
+//			{
+//				cout << "There are no opened rooms" << endl;
+//				break;
+//			}
+//
+//			//EXIT_ROOM ; define is not working
+//			case 37:
+//			{
+//				cout << "You have left the room" << endl;
+//				break;
+//			}
 			case PRINT_DATA_FROM_SERVER:
 			{
 				int numOfIter;
@@ -277,10 +287,10 @@ void TCPMessengerClient::run()
 			case SERVER_DISCONNECT:
 			{
 				cout << "Server is closed" << endl;
-				if(state == IN_ROOM)
-				{
-					LeaveCurrentRoom();
-				}
+//				if(state == IN_ROOM)
+//				{
+//					LeaveCurrentRoom();
+//				}
 				if(state == IN_SESSION)
 				{
 					closeActiveSession();
@@ -310,23 +320,23 @@ void TCPMessengerClient::PrintData(string data, int numOfIter)
 	free(tempCahrFromData);
 }
 
-
-void TCPMessengerClient::PrintAllRooms()
-{
-	TCPtoServerCommandProtocol(EXISTED_ROOMS);
-}
-
-void TCPMessengerClient::PrintAllUsersInRoomToServer(string roomName)
-{
-	if(state == NOT_CONNECTED)
-	{
-		cout << "You must be connected" << endl;
-	}
-	else
-	{
-		TCPtoServerMessage(roomName,USERS_IN_ROOM);
-	}
-}
+//
+//void TCPMessengerClient::PrintAllRooms()
+//{
+//	TCPtoServerCommandProtocol(EXISTED_ROOMS);
+//}
+//
+//void TCPMessengerClient::PrintAllUsersInRoomToServer(string roomName)
+//{
+//	if(state == NOT_CONNECTED)
+//	{
+//		cout << "You must be connected" << endl;
+//	}
+//	else
+//	{
+//		TCPtoServerMessage(roomName,USERS_IN_ROOM);
+//	}
+//}
 
 bool TCPMessengerClient::closeActiveSession()
 {
@@ -357,11 +367,11 @@ bool TCPMessengerClient::send(string msg)
 		UDPmanager->sendToPeer(msg);
 		return true;
 	}
-	if(state == IN_ROOM)
-	{
-		UDPmanager->sendToRoom(msg);
-		return true;
-	}
+//	if(state == IN_ROOM)
+//	{
+//		UDPmanager->sendToRoom(msg);
+//		return true;
+//	}
 	return false;
 }
 
@@ -381,26 +391,26 @@ void TCPMessengerClient::TCPtoServerMessage(string msg,int protocol)
 	clientSock->send((char*)&msglen,4);
 	clientSock->send(msg.c_str(),(msg.length()));
 }
-
-void TCPMessengerClient::CreateNewRoom(string room)
-{
-	TCPtoServerMessage(room,CREATE_NEW_ROOM);
-	roomName = room;
-}
-
-void TCPMessengerClient::LeaveCurrentRoom()
-{
-	if(state == IN_ROOM)
-	{
-		TCPtoServerMessage(roomName,LEAVE_ROOM);
-		state = AVAILABLE;
-		roomName ="none";
-	}
-	else
-	{
-		cout << "You are not present in any room" << endl;
-	}
-}
+//
+//void TCPMessengerClient::CreateNewRoom(string room)
+//{
+//	TCPtoServerMessage(room,CREATE_NEW_ROOM);
+//	roomName = room;
+//}
+//
+//void TCPMessengerClient::LeaveCurrentRoom()
+//{
+//	if(state == IN_ROOM)
+//	{
+//		TCPtoServerMessage(roomName,LEAVE_ROOM);
+//		state = AVAILABLE;
+//		roomName ="none";
+//	}
+//	else
+//	{
+//		cout << "You are not present in any room" << endl;
+//	}
+//}
 
 void TCPMessengerClient::printMyCurrentStatus()
 {
@@ -408,10 +418,10 @@ void TCPMessengerClient::printMyCurrentStatus()
 	{
 		cout << "You are connected to server with user "<< userName << endl;
 	}
-	else if(state == IN_ROOM)
-	{
-		cout << "You are in room "<< roomName <<endl;
-	}
+//	else if(state == IN_ROOM)
+//	{
+//		cout << "You are in room "<< roomName <<endl;
+//	}
 	else if(state == IN_SESSION)
 	{
 		cout << "You are in session with " << inSessionWith << endl;

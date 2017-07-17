@@ -17,8 +17,6 @@ void printCommandList()
 	cout<<"* List all users \t\t lu"<<endl;
 	cout<<"* List all connected users \t lcu"<<endl;
 	cout<<"* List all sessions \t\t ls"<<endl;
-	cout<<"* List all rooms \t\t lr"<<endl;
-	cout<<"* List all users in this room \t lru <room name>"<<endl;
 	cout<<"* Exit \t\t\t\t x"<<endl;
 }
 
@@ -42,26 +40,26 @@ int main()
 		}
 
 		//Print all rooms
-		else if(command == "lr")
-		{
-			if(server.Rooms.size()>0)
-			{
-				for(unsigned int i = 0 ; i<server.Rooms.size();i++)
-				cout<<i+1<<"."<<server.Rooms.at(i)->name<<endl;
-			}
-			else
-			{
-				cout<<"There are no open rooms"<<endl;
-			}
-		}
+//		else if(command == "lr")
+//		{
+//			if(server.Rooms.size()>0)
+//			{
+//				for(unsigned int i = 0 ; i<server.Rooms.size();i++)
+//				cout<<i+1<<"."<<server.Rooms.at(i)->name<<endl;
+//			}
+//			else
+//			{
+//				cout<<"There are no open rooms"<<endl;
+//			}
+//		}
 
 		//list of users in a specific room
-		else if(command == "lru")
-		{
-			string roomname;
-			cin>>roomname;
-			server.printUserinRoom(roomname);
-		}
+//		else if(command == "lru")
+//		{
+//			string roomname;
+//			cin>>roomname;
+//			server.printUserinRoom(roomname);
+//		}
 
 		else if(command == "lu")
 		{

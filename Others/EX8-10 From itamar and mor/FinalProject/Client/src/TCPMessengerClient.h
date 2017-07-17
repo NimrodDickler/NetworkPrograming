@@ -57,7 +57,7 @@ class TCPMessengerClient: public MThread
 		/**
 		 * open session with the given peer address (ip:port)
 		 */
-		bool open(string typeOfSession,string name);
+		void open(string typeOfSession,string name);
 
 		/**
 		 * close active session
@@ -69,13 +69,13 @@ class TCPMessengerClient: public MThread
 		 */
 		bool send(string msg);
 		void TCPtoServerCommandProtocol(int protocol);
-		void CreateNewRoom(string roomName);
-		void LeaveCurrentRoom();
+//		void CreateNewRoom(string roomName);
+//		void LeaveCurrentRoom();
 		void printMyCurrentStatus();
-		void CloseRoom(string roomName);
+//		void CloseRoom(string roomName);
 		void PrintData(string data, int numOfIter);
-		void PrintAllUsersInRoomToServer(string roomName);
-		void PrintAllRooms();
+//		void PrintAllUsersInRoomToServer(string roomName);
+//		void PrintAllRooms();
 		void PrintConnectedUsers();
 		void PrintAllUsers();
 

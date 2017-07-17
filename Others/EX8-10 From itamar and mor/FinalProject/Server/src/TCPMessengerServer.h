@@ -19,7 +19,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Room.h"
 
 using namespace std;
 
@@ -35,7 +34,6 @@ public:
 	vector<string> ipTOclientName;
 	vector<string> session1;
 	vector<string> session2;
-	vector<Room*> Rooms;
 
 
 	TCPMessengerServer();
@@ -54,10 +52,10 @@ public:
 	string nameToIp(string name);
 	string ipToName(string ip);
 	void ListSessions();
-	int findInRooms(string roomName);
-	void printUserinRoom(string name);
-	string UsersInRoomToString(string roomName);
-	void SendMsgToAllUsersInRoom(int msgType,string roomName, string userName);
+//	int findInRooms(string roomName);
+//	void printUserinRoom(string name);
+//	string UsersInRoomToString(string roomName);
+//	void SendMsgToAllUsersInRoom(int msgType,string roomName, string userName);
 	vector<string> GetUserNamesFromData();
 	void printAllUsers();
 	void close();

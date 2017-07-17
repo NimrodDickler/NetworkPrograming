@@ -29,12 +29,13 @@ class Dispatcher:public MThread
 	private:
 		void printConnectedUsers(TCPSocket* user);
 		void openSession(TCPSocket* user);
+		void requestToOpenSession(TCPSocket* user);
 		void closeSession(TCPSocket* user);
-		void createRoom(TCPSocket* user);
-		void leaveRoom(TCPSocket* user);
-		void joinRoom(TCPSocket* user);
-		void printRoomList(TCPSocket* user);
-		void printUsersInRoom(TCPSocket* user);
+//		void createRoom(TCPSocket* user);
+//		void leaveRoom(TCPSocket* user);
+//		void joinRoom(TCPSocket* user);
+//		void printRoomList(TCPSocket* user);
+//		void printUsersInRoom(TCPSocket* user);
 		void printRegisteredUsers(TCPSocket* user);
 		void disconnect(TCPSocket* user);
 };
