@@ -523,3 +523,56 @@ vector<string> TCPMessengerServer::GetUserNamesFromData()
 	uin.close();
 	return userNameBuffer;
 }
+
+vector<string> TCPMessengerServer::GetScoreBoardFromData()
+{
+	ifstream uin;
+	uin.open("users.txt");
+	map<string,int> scoreBoard;
+	multimap<int, string,greater<int>> flipedScoreBoard;
+	vector<string> scoreBuffer;
+	string temp, user, score;
+	string sep = ":";
+
+	if (uin.is_open())
+	{
+		while (uin >> temp)
+		{
+			scoreBoard[temp] = 0;
+		}
+	}
+
+	uin.close();
+
+	ifstream sin;
+	sin.open("scoreboard.txt");
+
+	string tempScore;
+
+	if (sin.is_open())
+	{
+		while (sin >> tempScore)
+		{
+			++scoreBoard[tempScore];
+		}
+	}
+
+	sin.close();
+
+
+	map<string,int>::iterator i = scoreBoard.begin();
+	while(i != scoreBoard.end()){
+		flipedScoreBoard.insert(std::pair<int,string>(i->second,i->first));
+		i++;
+	}
+
+	multimap<int,string>::iterator it = flipedScoreBoard.begin();
+	while(it != flipedScoreBoard.end()){
+		user = it->second;
+		score = std::to_string(it-> first);
+		scoreBuffer.push_back(user + sep + score);
+		it++;
+	}
+
+	return scoreBuffer;
+}

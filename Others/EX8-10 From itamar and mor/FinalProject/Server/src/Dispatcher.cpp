@@ -114,25 +114,18 @@ void Dispatcher::run()
 
 void Dispatcher::printScoreBoard(TCPSocket * user)
 {
-	string stringOfUsersName;
-	string tempNameFromIp;
-	int numberOfUsers = server->openPeerVect.size();
-
-	for(unsigned int i=0; i<server->openPeerVect.size(); i++)
+	vector<string> tempVect = server->GetScoreBoardFromData();
+	int numOfUsers = tempVect.size();
+	string users;
+	for(int i = 0; i <numOfUsers;i++)
 	{
-		tempNameFromIp = server->ipToName(server->openPeerVect.at(i)->destIpAndPort());
-		stringOfUsersName.append(tempNameFromIp);
-		if(i != server->openPeerVect.size()-1)
-		{
-			stringOfUsersName.append(" ");
-		}
+		users.append(tempVect.at(i));
+		if(i != numOfUsers-1)
+		users.append(" ");
 	}
-	if(numberOfUsers > 0)
-	{
-		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
-		server->SendCommandToTCP(numberOfUsers,user);
-		server->SendMsgToTCP(stringOfUsersName,user);
-	}
+	server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
+	server->SendCommandToTCP(numOfUsers,user);
+	server->SendMsgToTCP(users,user);
 }
 
 

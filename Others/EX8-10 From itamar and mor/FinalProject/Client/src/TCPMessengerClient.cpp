@@ -353,7 +353,6 @@ void TCPMessengerClient::PrintScoreBoard()
 	else
 	{
 		TCPtoServerCommandProtocol(SCOREBOARD);
-		cout << "DEBUG:Sending a request to view SCOREBOARD" << endl;
 	}
 
 }

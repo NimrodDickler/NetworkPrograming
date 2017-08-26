@@ -65,6 +65,7 @@ public:
 //	string UsersInRoomToString(string roomName);
 //	void SendMsgToAllUsersInRoom(int msgType,string roomName, string userName);
 	vector<string> GetUserNamesFromData();
+	vector<string> GetScoreBoardFromData();
 	void printAllUsers();
 	void close();
 
