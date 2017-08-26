@@ -459,6 +459,52 @@ int TCPMessengerServer::Register(string userNamePlusPassword)
 	return 1;
 }
 
+
+int TCPMessengerServer::RegisterWithHash(string userNamePlusPassword)
+{
+	char* tempUserAndPass = strdup(userNamePlusPassword.c_str());
+	string username = strtok(tempUserAndPass," ");
+	string password = strtok(NULL, " ");
+	ifstream pin;
+
+	pin.open("users.txt");
+	string userNameBuffer[256];
+	int location;
+	int numOfUsers=0;
+
+	if (pin.is_open())
+	{
+		while (!pin.eof())
+		{
+			pin >> userNameBuffer[numOfUsers];
+			numOfUsers++;
+		 }
+	}
+
+	for(location=0; location<numOfUsers; location++)
+	{
+		if (strcmp(username.c_str(), userNameBuffer[location].c_str()) ==0)
+		{
+			pin.close();
+			return 0;
+		}
+	}
+	pin.close();
+
+	ofstream pin2;
+	pin2.open("users.txt",ofstream::app);
+
+	pin2<<username<<endl;
+	pin2.close();
+	pin2.open("passwords.txt",ofstream::app);
+	pin2<<password<<endl;
+
+
+	pin2.close();
+	free(tempUserAndPass);
+	return 1;
+}
+
 vector<string> TCPMessengerServer::GetUserNamesFromData()
 {
 	ifstream uin;

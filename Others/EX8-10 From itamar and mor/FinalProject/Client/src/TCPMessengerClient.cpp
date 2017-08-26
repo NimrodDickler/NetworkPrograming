@@ -343,6 +343,21 @@ void TCPMessengerClient::PrintConnectedUsers()
 
 }
 
+//Print all connected users
+void TCPMessengerClient::PrintScoreBoard()
+{
+	if(state == NOT_CONNECTED)
+	{
+		cout << "You are not connected to any server!" << endl;
+	}
+	else
+	{
+		TCPtoServerCommandProtocol(SCOREBOARD);
+		cout << "DEBUG:Sending a request to view SCOREBOARD" << endl;
+	}
+
+}
+
 //Print all registered users
 void TCPMessengerClient::PrintAllUsers()
 {

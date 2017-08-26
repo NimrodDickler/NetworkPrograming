@@ -31,6 +31,7 @@
 #define REJECT_SESSION_REQUEST		13
 #define PENDING						14
 #define RETURN_RANDOM_ACTIVE_USER	15
+#define SEND_SCORE_TO_SERVER		16
 #define PRINT_DATA_FROM_SERVER		22
 #define CREATE_NEW_USER  			23
 #define NEW_USER_APPROVED			24
@@ -42,6 +43,7 @@
 #define IN_SESSION                  30
 #define REG_USERS 					32
 #define CONNECTED_USERS				33
+#define SCOREBOARD					34
 
 
 #define SESSION_REFUSED_MSG "Connection to peer refused, peer might be busy or disconnected, try again later"

@@ -19,6 +19,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <hash_map>
+#include <string>
+#include <unordered_map>
+#include <iostream>
+#include <functional>
+
+
 
 using namespace std;
 
@@ -41,6 +48,7 @@ public:
 	void listPeers();
 	void PrintOpenPeerVector();
 	int Register(string userNamePlusPassword);
+	int RegisterWithHash(string userNamePlusPassword);
 	int Login(string userName, string password);
 	int RecieveCommandFromTCP(TCPSocket * tmpTCP);
 	char * RecieveMessageFromTCP(TCPSocket * tmpTCP);

@@ -77,6 +77,13 @@ void Dispatcher::run()
 //			}
 
 			//Print all connected users
+			case SCOREBOARD:
+			{
+				printScoreBoard(user);
+				break;
+			}
+
+			//Print all connected users
 			case CONNECTED_USERS:
 			{
 				printConnectedUsers(user);
@@ -89,18 +96,6 @@ void Dispatcher::run()
 				break;
 			}
 
-//			case USERS_IN_ROOM:
-//			{
-//				printUsersInRoom(user);
-//				break;
-//			}
-
-			//Print available rooms
-//			case EXISTED_ROOMS:
-//			{
-//				printRoomList(user);
-//				break;
-//			}
 
 			case REG_USERS:
 			{
@@ -117,6 +112,28 @@ void Dispatcher::run()
 	}
 }
 
+void Dispatcher::printScoreBoard(TCPSocket * user)
+{
+	string stringOfUsersName;
+	string tempNameFromIp;
+	int numberOfUsers = server->openPeerVect.size();
+
+	for(unsigned int i=0; i<server->openPeerVect.size(); i++)
+	{
+		tempNameFromIp = server->ipToName(server->openPeerVect.at(i)->destIpAndPort());
+		stringOfUsersName.append(tempNameFromIp);
+		if(i != server->openPeerVect.size()-1)
+		{
+			stringOfUsersName.append(" ");
+		}
+	}
+	if(numberOfUsers > 0)
+	{
+		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
+		server->SendCommandToTCP(numberOfUsers,user);
+		server->SendMsgToTCP(stringOfUsersName,user);
+	}
+}
 
 
 void Dispatcher::printConnectedUsers(TCPSocket * user)

@@ -78,6 +78,7 @@ class TCPMessengerClient: public MThread
 //		void PrintAllRooms();
 		void PrintConnectedUsers();
 		void PrintAllUsers();
+		void PrintScoreBoard();
 
 };
 
