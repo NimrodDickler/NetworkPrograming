@@ -83,6 +83,12 @@ void Dispatcher::run()
 				break;
 			}
 
+			case SEND_SCORE_TO_SERVER:
+			{
+				updateScoreBoard(user);
+				break;
+			}
+
 			//Print all connected users
 			case CONNECTED_USERS:
 			{
@@ -95,8 +101,6 @@ void Dispatcher::run()
 				returnRandomActiveUser(user);
 				break;
 			}
-
-
 			case REG_USERS:
 			{
 				printRegisteredUsers(user);
@@ -128,6 +132,11 @@ void Dispatcher::printScoreBoard(TCPSocket * user)
 	server->SendMsgToTCP(users,user);
 }
 
+void Dispatcher::updateScoreBoard(TCPSocket * user)
+{
+	string winner_username = server->RecieveMessageFromTCP(user);
+	server->writeToScoreBoard(winner_username);
+}
 
 void Dispatcher::printConnectedUsers(TCPSocket * user)
 {

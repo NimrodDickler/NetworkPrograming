@@ -24,6 +24,7 @@ void printCommandList() {
 	cout << "* Close opened session \t\t\t cs" << endl;
 	cout << "* Disconnect from server \t\t d" << endl;
 	cout << "* Show Menu \t\t\t\t m" << endl;
+	cout << "* DEBUG - SEND Score to server \t\t sbwin" << endl;
 	cout << "* Exit \t\t\t\t\t x" << endl;
 }
 
@@ -94,9 +95,16 @@ int main() {
 		}
 
 		//Print scoreboard
-				else if (command == "lsb") {
-					client->PrintScoreBoard();
-				}
+		else if (command == "lsb") {
+			client->PrintScoreBoard();
+		}
+
+		// Only the winning client should send the server the winning user (self)
+		// Winning user should send the server the results
+		else if (command == "sbwin") {
+			cout << "recived command sbwin"<< endl;
+			client->sendWinnerToServer();
+		}
 
 		//Print all login users
 		else if (command == "lcu") {

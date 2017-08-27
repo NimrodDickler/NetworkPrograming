@@ -61,6 +61,8 @@ class TCPMessengerClient: public MThread
 
 		/**
 		 * close active session
+		 *
+		 *
 		 */
 		bool closeActiveSession();
 
@@ -72,6 +74,7 @@ class TCPMessengerClient: public MThread
 //		void CreateNewRoom(string roomName);
 //		void LeaveCurrentRoom();
 		void printMyCurrentStatus();
+		void sendWinnerToServer();
 //		void CloseRoom(string roomName);
 		void PrintData(string data, int numOfIter);
 //		void PrintAllUsersInRoomToServer(string roomName);

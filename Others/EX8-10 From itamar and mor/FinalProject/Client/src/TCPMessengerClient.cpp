@@ -46,6 +46,13 @@ bool TCPMessengerClient::connect(string ip, string user, string pass, int regist
 		return false;
 	}
 }
+// Send the server the usernameof the winning user
+void TCPMessengerClient::sendWinnerToServer()
+{
+	string msg = this->userName;
+	cout << "Sending message to server with msg " << msg << endl;
+	this->TCPtoServerMessage(msg,SEND_SCORE_TO_SERVER);
+}
 
 //Checks if client is connected to server
 bool TCPMessengerClient::isConnected()
