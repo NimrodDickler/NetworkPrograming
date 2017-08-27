@@ -50,7 +50,6 @@ bool TCPMessengerClient::connect(string ip, string user, string pass, int regist
 void TCPMessengerClient::sendWinnerToServer()
 {
 	string msg = this->userName;
-	cout << "Sending message to server with msg " << msg << endl;
 	this->TCPtoServerMessage(msg,SEND_SCORE_TO_SERVER);
 }
 

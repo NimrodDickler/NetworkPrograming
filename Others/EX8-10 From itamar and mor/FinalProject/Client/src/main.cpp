@@ -100,9 +100,7 @@ int main() {
 		}
 
 		// Only the winning client should send the server the winning user (self)
-		// Winning user should send the server the results
 		else if (command == "sbwin") {
-			cout << "recived command sbwin"<< endl;
 			client->sendWinnerToServer();
 		}
 

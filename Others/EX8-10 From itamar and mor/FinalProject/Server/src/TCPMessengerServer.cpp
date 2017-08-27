@@ -23,7 +23,6 @@ void TCPMessengerServer::run()
 		//Wait for incoming clients
 		TCPSocket* tmpTCP=serverSock->listenAndAccept();
 		int command = RecieveCommandFromTCP(tmpTCP);
-		cout <<"Recived command: " << command << endl;
 
 		if(command == USER_LOGIN_REQUEST)
 		{
@@ -526,7 +525,6 @@ vector<string> TCPMessengerServer::GetUserNamesFromData()
 }
 void TCPMessengerServer::writeToScoreBoard(string winner)
 {
-	cout << "DEBUG: got user: " << winner << "need to write it to file" << endl;
 	ofstream sbin;
 	sbin.open("scoreboard.txt",ofstream::app);
 	sbin<<endl<<winner<<endl;
