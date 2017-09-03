@@ -60,6 +60,7 @@ public:
 	string nameToIp(string name);
 	string ipToName(string ip);
 	void ListSessions();
+	int hashCode();
 //	int findInRooms(string roomName);
 //	void printUserinRoom(string name);
 //	string UsersInRoomToString(string roomName);

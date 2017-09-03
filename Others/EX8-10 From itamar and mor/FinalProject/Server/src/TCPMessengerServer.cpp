@@ -165,6 +165,9 @@ int TCPMessengerServer::Login(string userName, string password)
 	int numOfUsers=0;
 	int numOfPasswords=0;
 
+	size_t password_hash = std::hash<std::string>()(password);
+	string srt_password_hash = std::to_string(password_hash);
+
 	if (uin.is_open())
 	{
 		while (!uin.eof())
@@ -199,13 +202,20 @@ int TCPMessengerServer::Login(string userName, string password)
 		return 1;
 	}
 
-	if (strcmp(password.c_str(), passwordBuffer[location].c_str()) ==0)
+	if (strcmp(srt_password_hash.c_str(), passwordBuffer[location].c_str()) ==0)
 	{
 		//Valid password
 		uin.close();
 		pin.close();
 		return 0;
 	}
+	/*if (password_hash == passwordBuffer[location])
+		{
+			//Valid password
+			uin.close();
+			pin.close();
+			return 0;
+		}*/
 	else
 	{
 		//Invalid password
@@ -415,9 +425,11 @@ int TCPMessengerServer::Register(string userNamePlusPassword)
 	char* tempUserAndPass = strdup(userNamePlusPassword.c_str());
 	string username = strtok(tempUserAndPass," ");
 	string password = strtok(NULL, " ");
+	size_t password_hash = std::hash<std::string>()(password);
 
 	cout << username << endl;
 	cout << password << endl;
+	cout << password_hash <<endl;
 
 	ifstream pin;
 
@@ -451,7 +463,8 @@ int TCPMessengerServer::Register(string userNamePlusPassword)
 	pin2<<username<<endl;
 	pin2.close();
 	pin2.open("passwords.txt",ofstream::app);
-	pin2<<password<<endl;
+	//pin2<<password<<endl;
+	pin2<<password_hash<<endl;
 
 
 	pin2.close();
