@@ -42,7 +42,7 @@ void UDPHandeler::sendGameMoveToPeer(string msg) {
 				<< "ERROR: you cannot send move if the other player didnt reply yet"
 				<< endl;
 	} else {
-		if (msg == "winner" || msg == "loser") {
+		if (msg == "winner" || msg == "loser" || msg == "draw") {
 			clientUDPSock->sendTo(msg, destIp, atoi(destPort.c_str()));
 		} else {
 			if (msg != "game_move") {
@@ -59,7 +59,7 @@ void UDPHandeler::sendGameMoveToPeer(string msg) {
 }
 
 string UDPHandeler::winnerStatus() {
-	if (winner == "yes" || winner == "no") {
+	if (winner == "yes" || winner == "no" || winner == "draw") {
 		return winner;
 	} else {
 		return "pending";
@@ -90,6 +90,9 @@ void UDPHandeler::run() {
 			} else if (msg == "loser") {
 				myMove = "";
 				winner = "no";
+			} else if (msg == "draw") {
+				myMove = "";
+				winner = "draw";
 			} else if (myMove != "") {
 				if (myMove == "1" && msg == "3") {
 					winner = "yes";
@@ -103,9 +106,19 @@ void UDPHandeler::run() {
 					winner = "no";
 				} else if (myMove == "2" && msg == "3") {
 					winner = "no";
+				} else if (myMove == "1" && msg == "1") {
+					winner = "draw";
+				} else if (myMove == "2" && msg == "2") {
+					winner = "draw";
+				} else if (myMove == "2" && msg == "2") {
+					winner = "draw";
 				}
 
-				if (winner == "no") {
+				if (winner == "draw") {
+					myMove = "";
+					sendGameMoveToPeer("game_move");
+					sendGameMoveToPeer("draw");
+				} else if (winner == "no") {
 					myMove = "";
 					sendGameMoveToPeer("game_move");
 					sendGameMoveToPeer("winner");

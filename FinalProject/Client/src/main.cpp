@@ -20,6 +20,7 @@ void printCommandList() {
 	cout << "* Print connected users list \t\t lcu" << endl;
 	cout << "* Print score list \t\t\t lsb" << endl;
 	cout << "* Open a session with user \t\t o <username>" << endl;
+	cout << "* Open a session with random user \t\t random" << endl;
 	cout << "* Send message in your session \t\t s <message>" << endl;
 	cout << "* Send gave move in your session \t\t g" << endl;
 	cout << "* Close opened session \t\t\t cs" << endl;
@@ -97,15 +98,17 @@ int main() {
 					msg = "game_move";
 					client->sendGmaeMove(msg);
 					client->sendGmaeMove(move);
-					while(client->getGameStatus() != "yes" &&  client->getGameStatus() != "no" ){
+					while(client->getGameStatus() != "yes" &&  client->getGameStatus() != "no" &&  client->getGameStatus() != "draw"){
 						cout << client->getGameStatus() << endl;
 						sleep(5);
 					}
 					if (client->getGameStatus() == "yes"){
 						cout << "YOU WIN! :)" << endl;
 						client->sendWinnerToServer();
+					} else if (client->getGameStatus() == "draw") {
+						cout << "DRAW!" << endl;
 					} else {
-						cout << "YOU LOST! :(" << endl;
+						cout << "YOU LOSE :(" << endl;
 					}
 					client->resetGameStatus();
 
