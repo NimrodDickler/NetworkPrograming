@@ -70,6 +70,9 @@ class TCPMessengerClient: public MThread
 		 * send the given message to the connected peer
 		 */
 		bool send(string msg);
+		bool sendGmaeMove(string msg);
+		string getGameStatus();
+		void resetGameStatus();
 		void TCPtoServerCommandProtocol(int protocol);
 //		void CreateNewRoom(string roomName);
 //		void LeaveCurrentRoom();

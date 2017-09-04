@@ -21,6 +21,7 @@ void printCommandList() {
 	cout << "* Print score list \t\t\t lsb" << endl;
 	cout << "* Open a session with user \t\t o <username>" << endl;
 	cout << "* Send message in your session \t\t s <message>" << endl;
+	cout << "* Send gave move in your session \t\t g" << endl;
 	cout << "* Close opened session \t\t\t cs" << endl;
 	cout << "* Disconnect from server \t\t d" << endl;
 	cout << "* Show Menu \t\t\t\t m" << endl;
@@ -80,6 +81,38 @@ int main() {
 			}
 		}
 
+		else if (command == "g") {
+			if (client->state != IN_SESSION) {
+				cout << "You are not connected to any game" << endl;
+			} else {
+				cout << "Pick your move: " << endl;
+				cout << "Press 1 for Rock: " << endl;
+				cout << "Press 2 for Paper: " << endl;
+				cout << "Press 3 for Scissors: " << endl;
+				string move;
+				cin >> move;
+				if (move != "1" && move != "2" && move != "3") {
+					cout << "ERROR: invalid move" << endl;
+				} else {
+					msg = "game_move";
+					client->sendGmaeMove(msg);
+					client->sendGmaeMove(move);
+					while(client->getGameStatus() != "yes" &&  client->getGameStatus() != "no" ){
+						cout << client->getGameStatus() << endl;
+						sleep(5);
+					}
+					if (client->getGameStatus() == "yes"){
+						cout << "YOU WIN! :)" << endl;
+						client->sendWinnerToServer();
+					} else {
+						cout << "YOU LOST! :(" << endl;
+					}
+					client->resetGameStatus();
+
+				}
+			}
+		}
+
 		//Leave a room or a session
 		else if (command == "cs") {
 			if (client->state == IN_SESSION) {
@@ -129,26 +162,21 @@ int main() {
 		//Print menu again
 		else if (command == "m") {
 			printCommandList();
-		}
-		else if (command == "yes") {
-			if (client->state == PENDING){
+		} else if (command == "yes") {
+			if (client->state == PENDING) {
 				client->state = AVAILABLE;
 				client->TCPtoServerCommandProtocol(APPROVE_SESSION_REQUEST);
-			}
-			else
+			} else
 				cout << "You don't have any requests to approve" << endl;
-		}
-		else if (command == "no"){
-			if (client->state == PENDING){
+		} else if (command == "no") {
+			if (client->state == PENDING) {
 				client->state = AVAILABLE;
 				client->TCPtoServerCommandProtocol(REJECT_SESSION_REQUEST);
-			}
-			else
+			} else
 				cout << "You don't have any requests to reject" << endl;
 		} else if (command == "random") {
 			client->TCPtoServerCommandProtocol(RETURN_RANDOM_ACTIVE_USER);
-		}
-		else {
+		} else {
 			cout << "Wrong input" << endl;
 		}
 	}

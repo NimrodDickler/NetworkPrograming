@@ -49,32 +49,11 @@ void Dispatcher::run()
 				break;
 			}
 
-			//Get the room name and add the user to that room
-			/*case JOIN_ROOM:
-			{
-				joinRoom(user);
-				break;
-			}*/
-
 			case CLOSE_SESSION_WITH_PEER:
 			{
 				closeSession(user);
 				break;
 			}
-
-			//Create room and save the owner
-//			case CREATE_NEW_ROOM:
-//			{
-//				createRoom(user);
-//				break;
-//			}
-
-			//Remove user from room
-//			case LEAVE_ROOM:
-//			{
-//				leaveRoom(user);
-//				break;
-//			}
 
 			//Print all connected users
 			case SCOREBOARD:

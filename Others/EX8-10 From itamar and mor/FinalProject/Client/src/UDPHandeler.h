@@ -21,10 +21,15 @@ public:
 	string destIp;
 	string destPort;
 	string roomName;
+	string myMove;
+	string winner;
 	vector<string> listOfUsersInRoom;
 	bool UDPserverConnected;
 
 	void sendToPeer(string msg);
+	void sendGameMoveToPeer(string move);
+	void resetGameStatus();
+	string winnerStatus();
 	UDPHandeler(string myUserName,string myIpandPort);
 	void setDestmessage(string dest);
 	void sendToRoom(string msg);

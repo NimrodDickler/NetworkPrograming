@@ -289,12 +289,27 @@ bool TCPMessengerClient::send(string msg)
 		UDPmanager->sendToPeer(msg);
 		return true;
 	}
-//	if(state == IN_ROOM)
-//	{
-//		UDPmanager->sendToRoom(msg);
-//		return true;
-//	}
+
 	return false;
+}
+
+bool TCPMessengerClient::sendGmaeMove(string move)
+{
+	if(state == IN_SESSION)
+	{
+		UDPmanager->sendGameMoveToPeer(move);
+		return true;
+	}
+
+	return false;
+}
+
+string TCPMessengerClient::getGameStatus() {
+	return UDPmanager->winnerStatus();
+}
+
+void TCPMessengerClient::resetGameStatus(){
+	UDPmanager->resetGameStatus();
 }
 
 void TCPMessengerClient::TCPtoServerCommandProtocol(int protocol)
@@ -320,10 +335,6 @@ void TCPMessengerClient::printMyCurrentStatus()
 	{
 		cout << "You are connected to server with user "<< userName << endl;
 	}
-//	else if(state == IN_ROOM)
-//	{
-//		cout << "You are in room "<< roomName <<endl;
-//	}
 	else if(state == IN_SESSION)
 	{
 		cout << "You are in session with " << inSessionWith << endl;
