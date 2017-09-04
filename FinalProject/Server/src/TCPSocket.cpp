@@ -1,10 +1,3 @@
-/*
-c * TCPSocket.cpp
- *
- *  Created on: Feb 6, 2013
- *      Author: Eliav Menachi
- */
-
 #include <iostream>
 #include <sys/types.h>
 #include <netinet/in.h>

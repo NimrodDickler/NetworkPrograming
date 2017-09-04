@@ -1,10 +1,3 @@
-//============================================================================
-// Name        : TCP Messenger Server
-// Author      : Eliav Menachi
-// Version     :
-// Copyright   :
-// Description : TCP Messenger application
-//============================================================================
 #include <strings.h>
 #include <map>
 #include <vector>
@@ -61,10 +54,6 @@ public:
 	string ipToName(string ip);
 	void ListSessions();
 	int hashCode();
-//	int findInRooms(string roomName);
-//	void printUserinRoom(string name);
-//	string UsersInRoomToString(string roomName);
-//	void SendMsgToAllUsersInRoom(int msgType,string roomName, string userName);
 	vector<string> GetUserNamesFromData();
 	vector<string> GetScoreBoardFromData();
 	void writeToScoreBoard(string winner);

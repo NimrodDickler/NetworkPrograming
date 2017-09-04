@@ -1,10 +1,3 @@
-/*
- * MultipleTCPSocketsListener.h
- *
- *  Created on: Feb 14, 2013
- *      Author: efi
- */
-
 #ifndef MULTIPLETCPSOCKETSLISTENER_H_
 #define MULTIPLETCPSOCKETSLISTENER_H_
 
@@ -39,4 +32,4 @@ public:
 };
 
 
-#endif /* MULTIPLETCPSOCKETSLISTENER_H_ */
+#endif
