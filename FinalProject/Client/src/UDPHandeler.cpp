@@ -1,19 +1,4 @@
-/*
- * RecieveMsgUDP.cpp
- *
- *  Created on: Jun 5, 2013
- *      Author: user
- */
-
 #include "UDPHandeler.h"
-
-void UDPHandeler::sendToRoom(string msg) {
-	for (unsigned int i = 0; i < this->listOfUsersInRoom.size(); i++) {
-		string tempdest = listOfUsersInRoom.at(i);
-		setDestmessage(tempdest);
-		sendToPeer(msg);
-	}
-}
 
 UDPHandeler::UDPHandeler(string username, string IPandPort) {
 	myUserName = username;
@@ -39,7 +24,7 @@ void UDPHandeler::sendToPeer(string msg) {
 void UDPHandeler::sendGameMoveToPeer(string msg) {
 	if (myMove != "") {
 		cout
-				<< "ERROR: you cannot send move if the other player didnt reply yet"
+				<< "ERROR: you cannot send move if the other player didn't reply yet"
 				<< endl;
 	} else {
 		if (msg == "winner" || msg == "loser" || msg == "draw") {

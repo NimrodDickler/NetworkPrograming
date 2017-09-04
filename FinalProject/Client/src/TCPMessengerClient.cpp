@@ -7,7 +7,6 @@
 
 TCPMessengerClient::TCPMessengerClient()
 {
-	roomName = "none";
 	userName = "none";
 	state = NOT_CONNECTED;
 	UDPmanager = NULL;
@@ -46,7 +45,7 @@ bool TCPMessengerClient::connect(string ip, string user, string pass, int regist
 		return false;
 	}
 }
-// Send the server the usernameof the winning user
+// Send the server the username of the winning user
 void TCPMessengerClient::sendWinnerToServer()
 {
 	string msg = this->userName;
@@ -64,16 +63,11 @@ void TCPMessengerClient::disconnect()
 {
 	if(state != NOT_CONNECTED)
 	{
-//		if(state == IN_ROOM)
-//		{
-//			LeaveCurrentRoom();
-//		}
 		if(state == IN_SESSION)
 		{
 			closeActiveSession();
 		}
 		TCPtoServerCommandProtocol(DISCONNECT);
-//		system("sleep 1");
 		serverConnected = false;
 		UDPmanager->UDPserverConnected = false;
 		clientSock->cclose();
