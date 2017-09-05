@@ -1,10 +1,3 @@
-//============================================================================
-// Name        : TCP Messenger Server
-// Author      : Eliav Menachi
-// Version     :
-// Copyright   :
-// Description : TCP Messenger application
-//============================================================================
 #include <strings.h>
 #include <map>
 #include <vector>
@@ -29,7 +22,6 @@ class TCPMessengerClient: public MThread
 		UDPHandeler* UDPmanager;
 		string inSessionWith;
 		string userName;
-		string roomName;
 		int state;
 		void run();
 
@@ -61,8 +53,6 @@ class TCPMessengerClient: public MThread
 
 		/**
 		 * close active session
-		 *
-		 *
 		 */
 		bool closeActiveSession();
 
@@ -74,14 +64,9 @@ class TCPMessengerClient: public MThread
 		string getGameStatus();
 		void resetGameStatus();
 		void TCPtoServerCommandProtocol(int protocol);
-//		void CreateNewRoom(string roomName);
-//		void LeaveCurrentRoom();
 		void printMyCurrentStatus();
 		void sendWinnerToServer();
-//		void CloseRoom(string roomName);
 		void PrintData(string data, int numOfIter);
-//		void PrintAllUsersInRoomToServer(string roomName);
-//		void PrintAllRooms();
 		void PrintConnectedUsers();
 		void PrintAllUsers();
 		void PrintScoreBoard();

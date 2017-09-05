@@ -8,24 +8,19 @@
 using namespace std;
 
 void printCommandList() {
-	cout << "Commands:" << endl;
-	cout
-			<< "* Register new user \t\t\t register <server ip> <username> <password>"
-			<< endl;
-	cout
-			<< "* Login existed user \t\t\t login <server ip> <username> <password>"
-			<< endl;
+	cout << endl << "Commands for messaging and game play:" << endl << endl;
+	cout << "* Register new user \t\t\t register <server ip> <username> <password>"<< endl;
+	cout << "* Login existed user \t\t\t login <server ip> <username> <password>" << endl;
 	cout << "* Show your current state \t\t l" << endl;
 	cout << "* Print users list \t\t\t lu" << endl;
 	cout << "* Print connected users list \t\t lcu" << endl;
-	cout << "* Print score list \t\t\t lsb" << endl;
+	cout << "* Print scoreboard \t\t\t lsb" << endl;
 	cout << "* Open a session with user \t\t o <username>" << endl;
 	cout << "* Send message in your session \t\t s <message>" << endl;
-	cout << "* Send gave move in your session \t\t g" << endl;
+	cout << "* Send game move in your session \t g" << endl;
 	cout << "* Close opened session \t\t\t cs" << endl;
-	cout << "* Disconnect from server \t\t d" << endl;
 	cout << "* Show Menu \t\t\t\t m" << endl;
-	cout << "* DEBUG - SEND Score to server \t\t sbwin" << endl;
+	cout << "* Disconnect from server \t\t d" << endl;
 	cout << "* Exit \t\t\t\t\t x" << endl;
 }
 

@@ -1,10 +1,3 @@
-/*
- * Mthread.cpp
- *
- *  Created on: Feb 13, 2013
- *      Author: Eliav Menachi
- */
-
 #include "MThread.h"
 #include <iostream>
 #include <stdio.h>

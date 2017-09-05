@@ -1,10 +1,3 @@
-/*
- * UDPSocket.h
- *
- *  Created on: Feb 6, 2013
- *      Author: Eliav Menachi
- */
-
 #ifndef UDPSOCKET_H_
 #define UDPSOCKET_H_
 
@@ -32,4 +25,4 @@ public:
 	string fromAddr();
 };
 
-#endif /* UDPSOCKET_H_ */
+#endif

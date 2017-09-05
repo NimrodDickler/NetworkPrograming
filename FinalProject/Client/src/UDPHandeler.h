@@ -1,10 +1,3 @@
-/*
- * RecieveMsgUDP.h
- *
- *  Created on: Jun 5, 2013
- *      Author: user
- */
-
 #ifndef UDPHANDELER_H_
 #define UDPHANDELER_H_
 #include "UDPSocket.h"
@@ -20,10 +13,8 @@ public:
 	string myUserName;
 	string destIp;
 	string destPort;
-	string roomName;
 	string myMove;
 	string winner;
-	vector<string> listOfUsersInRoom;
 	bool UDPserverConnected;
 
 	void sendToPeer(string msg);
@@ -32,8 +23,6 @@ public:
 	string winnerStatus();
 	UDPHandeler(string myUserName,string myIpandPort);
 	void setDestmessage(string dest);
-	void sendToRoom(string msg);
-	void PrintUsersInRoom();
 	virtual ~UDPHandeler();
 	void run();
 
