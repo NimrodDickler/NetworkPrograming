@@ -1,11 +1,3 @@
-//============================================================================
-// Name        : TCPMessengerServer
-// Author      : Eliav Menachi
-// Version     :
-// Copyright   :
-// Description : TCP messenger server console
-//============================================================================
-
 #include <iostream>
 #include "TCPMessengerServer.h"
 #include "TCPMessengerProtocol.h"
@@ -38,34 +30,10 @@ int main()
 		{
 			server.listPeers();
 		}
-
-		//Print all rooms
-//		else if(command == "lr")
-//		{
-//			if(server.Rooms.size()>0)
-//			{
-//				for(unsigned int i = 0 ; i<server.Rooms.size();i++)
-//				cout<<i+1<<"."<<server.Rooms.at(i)->name<<endl;
-//			}
-//			else
-//			{
-//				cout<<"There are no open rooms"<<endl;
-//			}
-//		}
-
-		//list of users in a specific room
-//		else if(command == "lru")
-//		{
-//			string roomname;
-//			cin>>roomname;
-//			server.printUserinRoom(roomname);
-//		}
-
 		else if(command == "lu")
 		{
 			server.printAllUsers();
 		}
-
 		else if(command == "ls")
 		{
 			server.ListSessions();
@@ -79,7 +47,6 @@ int main()
 			system("sleep 1");
 			loop = false;
 		}
-
 		else
 		{
 			cout<<"Wrong input"<<endl;

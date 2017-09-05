@@ -103,55 +103,6 @@ void TCPMessengerServer::run()
 	}
 
 }
-//void TCPMessengerServer::SendMsgToAllUsersInRoom(int msgType,string roomName, string userName)
-//{
-//	int userIndex;
-//	int roomIndex = findInRooms(roomName);
-//	for(unsigned int i=0;i<Rooms.at(roomIndex)->users.size();i++)
-//	{
-//		string tempIPtosend = Rooms.at(roomIndex)->users.at(i);
-//		userIndex = findVector(tempIPtosend);
-//		this->SendCommandToTCP(ROOM_STATUS_CHANGED,this->openPeerVect.at(userIndex));
-//		switch(msgType)
-//		{
-//			case JOIN_ROOM:
-//			{
-//				string tempMsg = userName;
-//				tempMsg.append(" has joined the room");
-//				int numOfUsers =Rooms.at(roomIndex)->countUsers();
-//				SendMsgToTCP(tempMsg,this->openPeerVect.at(userIndex));
-//				SendCommandToTCP(numOfUsers,this->openPeerVect.at(userIndex));
-//				string usersVectorString = this->UsersInRoomToString(roomName);
-//				SendMsgToTCP(usersVectorString,this->openPeerVect.at(userIndex));
-//				break;
-//			}
-//			case LEAVE_ROOM:
-//			{
-//				string tempMsg = userName;
-//				tempMsg.append(" has Left the room");
-//				int numOfUsers =Rooms.at(roomIndex)->countUsers();
-//				SendMsgToTCP(tempMsg,this->openPeerVect.at(userIndex));
-//				SendCommandToTCP(numOfUsers,this->openPeerVect.at(userIndex));
-//				string usersVectorString = this->UsersInRoomToString(roomName);
-//				SendMsgToTCP(usersVectorString,this->openPeerVect.at(userIndex));
-//				break;
-//			}
-//		}
-//	}
-//}
-//
-//string TCPMessengerServer::UsersInRoomToString(string roomName)
-//{
-//	string tempIp;
-//	int roomIndex = this->findInRooms(roomName);
-//	for(unsigned int i=0; i<Rooms.at(roomIndex)->users.size(); i++)
-//	{
-//		tempIp.append(this->Rooms.at(roomIndex)->users.at(i));
-//		if(i != Rooms.at(roomIndex)->users.size()-1)
-//			tempIp.append(" ");
-//	}
-//	return tempIp;
-//}
 
 int TCPMessengerServer::Login(string userName, string password)
 {
@@ -351,29 +302,6 @@ void TCPMessengerServer::SendMsgToTCP(string msg, TCPSocket* tmpTCP)
 	tmpTCP->send((char*)&msglen,4);
 	tmpTCP->send(msg.c_str(),msg.length());
 }
-//
-//int TCPMessengerServer::findInRooms(string roomName)
-//{
-//  bool foundroom=false;
-//  unsigned int i;
-//  for(i=0;i<Rooms.size();i++)
-//  {
-//	  if(roomName == Rooms.at(i)->name)
-//	  {
-//		  foundroom=true;
-//		  break;
-//	  }
-//  }
-//
-//  if(foundroom)
-//  {
-//	  return i;
-//  }
-//  else
-//  {
-//	  return -1;
-//  }
-//}
 
 string TCPMessengerServer::ipToName(string ip)
 {
@@ -392,30 +320,12 @@ string TCPMessengerServer::ipToName(string ip)
 	}
 	return NULL;
 }
-//
-//void TCPMessengerServer::printUserinRoom(string roomname)
-//{
-//	int roomIndex = this->findInRooms(roomname);
-//	if(roomIndex!=-1)
-//	{
-//		for(unsigned int i=0;i<Rooms.at(roomIndex)->users.size();i++)
-//		{
-//			string tempname = this->ipToName(Rooms.at(roomIndex)->users.at(i));
-//			cout << i+1 << "." << tempname << endl;
-//		}
-//	}
-//	else
-//	{
-//		cout<<"No such room"<<endl;
-//	}
-//}
 
 void TCPMessengerServer::close()
 {
 	serverSock->cclose();
 	openPeerVect.clear();
 	dispatcher->dispatcherActive = false;
-
 	isServerOn = false;
 	delete dispatcher->MTL;
 }

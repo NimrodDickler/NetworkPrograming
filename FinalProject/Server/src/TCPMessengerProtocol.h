@@ -1,10 +1,3 @@
-/*
- * TCPMessengerProtocol.h
- *
- *  Created on: Feb 13, 2013
- *      Author: efi
- */
-
 #ifndef TCPMESSENGERPROTOCOL_H_
 #define TCPMESSENGERPROTOCOL_H_
 

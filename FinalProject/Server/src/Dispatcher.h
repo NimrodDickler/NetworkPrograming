@@ -1,10 +1,3 @@
-/*
- * DIspatcher.h
- *
- *  Created on: May 19, 2013
- *      Author: user
- */
-
 #ifndef DISPATCHER_H_
 #define DISPATCHER_H_
 #include "MThread.h"
@@ -31,11 +24,6 @@ class Dispatcher:public MThread
 		void openSession(TCPSocket* user);
 		void requestToOpenSession(TCPSocket* user);
 		void closeSession(TCPSocket* user);
-//		void createRoom(TCPSocket* user);
-//		void leaveRoom(TCPSocket* user);
-//		void joinRoom(TCPSocket* user);
-//		void printRoomList(TCPSocket* user);
-//		void printUsersInRoom(TCPSocket* user);
 		void printRegisteredUsers(TCPSocket* user);
 		void printScoreBoard(TCPSocket * user);
 		void updateScoreBoard(TCPSocket * user);
@@ -43,4 +31,4 @@ class Dispatcher:public MThread
 		void disconnect(TCPSocket* user);
 };
 
-#endif /* DISPATCHER_H_ */
+#endif

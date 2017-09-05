@@ -1,10 +1,3 @@
-/*
- * DIspatcher.cpp
- *
- *  Created on: May 19, 2013
- *      Author: user
- */
-
 #include "Dispatcher.h"
 #include "TCPMessengerServer.h"
 #include "TCPMessengerProtocol.h"
@@ -200,7 +193,6 @@ void Dispatcher::openSession(TCPSocket* user)
 	}
 }
 
-
 void Dispatcher::requestToOpenSession(TCPSocket* user)
 {
 	string requested_username = server->RecieveMessageFromTCP(user);
@@ -279,60 +271,6 @@ void Dispatcher::closeSession(TCPSocket* user)
 	server->session2.erase(server->session2.begin()+i);
 	server->SendCommandToTCP(CLOSE_SESSION_WITH_PEER,server->openPeerVect.at(indexInOpenVect));
 }
-//
-//void Dispatcher::printRoomList(TCPSocket* user)
-//{
-//	int numOfRoom = server->Rooms.size();
-//	string stringOfRooms;
-//	for(unsigned int i=0;i<server->Rooms.size();i++)
-//	{
-//		stringOfRooms.append(server->Rooms.at(i)->name);
-//		if(i!=server->Rooms.size()-1)
-//		{
-//			stringOfRooms.append(" ");
-//		}
-//	}
-//	if(numOfRoom > 0)
-//	{
-//		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
-//		server->SendCommandToTCP(numOfRoom,user);
-//		server->SendMsgToTCP(stringOfRooms,user);
-//	}
-//	else
-//	{
-//		//36 means NO_ROOMS (define not working)
-//		server->SendCommandToTCP(NO_ROOMS, user);
-//	}
-//}
-//
-//void Dispatcher::printUsersInRoom(TCPSocket* user)
-//{
-//	string roomNameFromClient = server->RecieveMessageFromTCP(user);
-//	int roomIndex=server->findInRooms(roomNameFromClient);
-//
-//	if(roomIndex != -1)
-//	{
-//		string stringOfUsersName;
-//		string tempNameFromIp;
-//		for(unsigned int i=0;i< server->Rooms.at(roomIndex)->users.size();i++)
-//		{
-//			tempNameFromIp=server->ipToName(server->Rooms.at(roomIndex)->users.at(i));
-//			stringOfUsersName.append(tempNameFromIp);
-//			if(i != server->Rooms.at(roomIndex)->users.size()-1)
-//			stringOfUsersName.append(" ");
-//		}
-//
-//		int numOfUsersInRoom = server->Rooms.at(roomIndex)->users.size();
-//
-//		server->SendCommandToTCP(PRINT_DATA_FROM_SERVER,user);
-//		server->SendCommandToTCP(numOfUsersInRoom,user);
-//		server->SendMsgToTCP(stringOfUsersName,user);
-//	}
-//	else
-//	{
-//		server->SendCommandToTCP(NO_SUCH_ROOM,user);
-//	}
-//}
 
 void Dispatcher::printRegisteredUsers(TCPSocket* user)
 {

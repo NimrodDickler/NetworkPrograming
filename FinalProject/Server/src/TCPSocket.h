@@ -1,10 +1,3 @@
-/*
- * TCPSocket.h
- *
- *  Created on: Feb 6, 2013
- *      Author: Eliav Menachi
- */
-
 #ifndef TCPSOCKET_H_
 #define TCPSOCKET_H_
 
